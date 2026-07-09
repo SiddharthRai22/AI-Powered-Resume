@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Plus, Trash2, Sparkles, ChevronDown, ChevronUp } from 'lucide-react';
+import { Plus, Trash2, Sparkles, ChevronDown, ChevronUp, Briefcase, Building, Calendar, List } from 'lucide-react';
 import { useResume } from '../../context/ResumeContext';
 import { aiService } from '../../services/aiService';
 import toast from 'react-hot-toast';
@@ -61,17 +61,22 @@ export default function ExperienceForm() {
   };
 
   return (
-    <div className="space-y-4">
-      <div className="flex items-center justify-between">
-        <div>
-          <h3 className="text-white font-semibold text-base">Work Experience</h3>
-          <p className="text-white/45 text-xs mt-0.5">Add your work history, most recent first.</p>
+    <div className="space-y-6">
+      <div className="flex items-center justify-between pb-3 border-b border-white/[0.05]">
+        <div className="flex items-center gap-2.5">
+          <div className="p-2 bg-brand-500/10 border border-brand-500/25 rounded-lg text-brand-400">
+            <Briefcase size={18} />
+          </div>
+          <div>
+            <h3 className="text-white font-display font-bold text-lg tracking-tight">Work Experience</h3>
+            <p className="text-white/40 text-xs mt-0.5">Add your work history, most recent first.</p>
+          </div>
         </div>
         <button
           onClick={() => addArrayItem('experience', { ...EMPTY_EXP, highlights: [''] })}
-          className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold text-[#a5b4fc] bg-[rgba(99,102,241,0.1)] border border-[rgba(99,102,241,0.25)] rounded-lg hover:bg-[rgba(99,102,241,0.2)] hover:border-[rgba(99,102,241,0.4)] hover:text-white transition-all cursor-pointer transform hover:-translate-y-0.5"
+          className="flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold text-white bg-gradient-to-r from-brand-500/80 to-purple-600/80 hover:from-brand-500 hover:to-purple-600 border border-brand-400/30 hover:border-brand-400/50 rounded-lg transition-all cursor-pointer shadow-lg shadow-brand-500/10 hover:shadow-brand-500/20 transform hover:-translate-y-0.5"
         >
-          <Plus size={13} /> Add
+          <Plus size={13} /> Add Experience
         </button>
       </div>
 
@@ -79,11 +84,14 @@ export default function ExperienceForm() {
         {experience.map((exp, idx) => (
           <div key={idx} className="form-card rounded-xl overflow-hidden">
             {/* Header */}
-            <div className="flex items-center gap-2 px-4 py-3.5 border-b border-white/[0.04] bg-white/[0.01]">
+            <div className="flex items-center gap-2 px-5 py-3.5 border-b border-white/[0.04] bg-white/[0.02]">
               <button onClick={() => toggleCollapse(idx)} className="flex-1 flex items-center justify-between text-left cursor-pointer">
-                <div>
-                  <p className="text-sm font-semibold text-white/90 tracking-wide">{exp.role || `Experience ${idx + 1}`}</p>
-                  {exp.company && <p className="text-xs text-white/45 mt-0.5 font-medium">{exp.company}</p>}
+                <div className="flex items-center gap-2.5">
+                  <Briefcase size={14} className="text-brand-400/70" />
+                  <div>
+                    <p className="text-sm font-semibold text-white/90 tracking-wide">{exp.role || `Experience ${idx + 1}`}</p>
+                    {exp.company && <p className="text-xs text-white/45 mt-0.5 font-medium">{exp.company}</p>}
+                  </div>
                 </div>
                 {collapsed.includes(idx) ? <ChevronDown size={16} className="text-white/40" /> : <ChevronUp size={16} className="text-white/40" />}
               </button>
@@ -96,27 +104,39 @@ export default function ExperienceForm() {
             {!collapsed.includes(idx) && (
               <div className="p-5 space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs text-white/70 font-semibold mb-1.5 tracking-wide">Job Title</label>
-                    <input className="input-dark w-full px-3.5 py-2.5 rounded-xl text-sm" placeholder="Software Engineer"
-                      value={exp.role} onChange={(e) => updateArrayItem('experience', idx, 'role', e.target.value)} />
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-[10px] font-bold text-white/45 tracking-wider uppercase">Job Title</label>
+                    <div className="relative">
+                      <Briefcase size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-white/30" />
+                      <input className="input-dark w-full pr-3.5 py-3 rounded-xl text-sm" placeholder="Software Engineer"
+                        value={exp.role} onChange={(e) => updateArrayItem('experience', idx, 'role', e.target.value)}
+                        style={{ paddingLeft: '38px' }} />
+                    </div>
                   </div>
-                  <div>
-                    <label className="block text-xs text-white/70 font-semibold mb-1.5 tracking-wide">Company</label>
-                    <input className="input-dark w-full px-3.5 py-2.5 rounded-xl text-sm" placeholder="Google"
-                      value={exp.company} onChange={(e) => updateArrayItem('experience', idx, 'company', e.target.value)} />
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-[10px] font-bold text-white/45 tracking-wider uppercase">Company</label>
+                    <div className="relative">
+                      <Building size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-white/30" />
+                      <input className="input-dark w-full pr-3.5 py-3 rounded-xl text-sm" placeholder="Google"
+                        value={exp.company} onChange={(e) => updateArrayItem('experience', idx, 'company', e.target.value)}
+                        style={{ paddingLeft: '38px' }} />
+                    </div>
                   </div>
-                  <div className="col-span-2">
-                    <label className="block text-xs text-white/70 font-semibold mb-1.5 tracking-wide">Duration</label>
-                    <input className="input-dark w-full px-3.5 py-2.5 rounded-xl text-sm" placeholder="Jan 2022 - Present"
-                      value={exp.duration} onChange={(e) => updateArrayItem('experience', idx, 'duration', e.target.value)} />
+                  <div className="flex flex-col gap-1.5 col-span-1 md:col-span-2">
+                    <label className="text-[10px] font-bold text-white/45 tracking-wider uppercase">Duration</label>
+                    <div className="relative">
+                      <Calendar size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-white/30" />
+                      <input className="input-dark w-full pr-3.5 py-3 rounded-xl text-sm" placeholder="Jan 2022 - Present"
+                        value={exp.duration} onChange={(e) => updateArrayItem('experience', idx, 'duration', e.target.value)}
+                        style={{ paddingLeft: '38px' }} />
+                    </div>
                   </div>
                 </div>
 
                 {/* Highlights */}
                 <div className="pt-2">
-                  <div className="flex items-center justify-between mb-2">
-                    <label className="text-xs text-white/70 font-semibold tracking-wide">Key Highlights / Bullets</label>
+                  <div className="flex items-center justify-between mb-2.5">
+                    <label className="block text-[11px] font-semibold text-white/50 tracking-wider uppercase">Key Highlights / Bullets</label>
                     <button
                       onClick={() => handleAIImprove(idx)}
                       disabled={improving === idx}
@@ -134,18 +154,22 @@ export default function ExperienceForm() {
                   <div className="space-y-2.5">
                     {exp.highlights.map((h, hIdx) => (
                       <div key={hIdx} className="flex gap-2 items-center">
-                        <input
-                          className="input-dark flex-1 px-3.5 py-2.5 rounded-xl text-xs"
-                          placeholder="Increased revenue by 30% through..."
-                          value={h}
-                          onChange={(e) => updateHighlight(idx, hIdx, e.target.value)}
-                        />
+                        <div className="relative flex-1">
+                          <List size={12} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-brand-400/50" />
+                          <input
+                            className="input-dark w-full pr-3.5 py-2.5 rounded-xl text-xs"
+                            placeholder="Increased revenue by 30% through..."
+                            value={h}
+                            onChange={(e) => updateHighlight(idx, hIdx, e.target.value)}
+                            style={{ paddingLeft: '34px' }}
+                          />
+                        </div>
                         <button onClick={() => removeHighlight(idx, hIdx)} className="p-2 text-white/30 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-all cursor-pointer">
                           <Trash2 size={12} />
                         </button>
                       </div>
                     ))}
-                    <button onClick={() => addHighlight(idx)} className="flex items-center gap-1 text-xs font-medium text-[#818cf8] hover:text-[#a5b4fc] transition-colors mt-2 cursor-pointer">
+                    <button onClick={() => addHighlight(idx)} className="flex items-center gap-1.5 text-xs font-semibold text-[#818cf8] hover:text-[#a5b4fc] transition-colors mt-2 cursor-pointer">
                       <Plus size={13} /> Add bullet
                     </button>
                   </div>

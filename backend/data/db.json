@@ -27,6 +27,27 @@
       "fullName": "ladu",
       "email": "ladu_test@gmail.com",
       "password": "$2a$12$DbTw5auPgy4nS8tcgOoefOmVUDDoiQec0nicGbka2cYMNjPvtIBGS"
+    },
+    {
+      "id": "20c82e12-2adb-49db-b79a-cc0363531d06",
+      "createdAt": "2026-07-09T15:57:51.924Z",
+      "fullName": "suhani",
+      "email": "suhani@gmail.com",
+      "password": "$2a$12$96rUZCHDKU6cNtP8sq6YvOBm5CHvzMUOD44QNKXR.QpkfQFsf7//6"
+    },
+    {
+      "id": "851b9417-188e-4817-ba2b-63d224d9166e",
+      "createdAt": "2026-07-09T16:18:54.427Z",
+      "fullName": "Test PDF",
+      "email": "pdf_test_user_7777@example.com",
+      "password": "$2a$12$HFcVafEd.Po3Vh9q68z.W.mNn1VYs0G.vx9KoY54Mv3EFMKc7Li8u"
+    },
+    {
+      "id": "e70e38f6-b8a4-49d2-bc68-ce5b97c78977",
+      "createdAt": "2026-07-09T17:58:29.807Z",
+      "fullName": "Verify User",
+      "email": "verify_theme@test.com",
+      "password": "$2a$12$xPbJDtFMmfRQ6yfiP8rsOe1X1KgboEdq5Bbv7BTx7PcoFeBb5i0Pu"
     }
   ],
   "resumes": [
@@ -182,6 +203,147 @@
       "createdAt": "2026-07-09T06:27:00.076Z",
       "updatedAt": "2026-07-09T06:27:02.947Z",
       "userId": "b06f317d-fd5c-4790-a755-856cd66665ad",
+      "title": "My Modern Resume",
+      "templateId": "modern",
+      "content": {
+        "templateId": "modern",
+        "personalInfo": {
+          "fullName": "",
+          "email": "",
+          "phone": "",
+          "location": "",
+          "headline": "",
+          "linkedin": "",
+          "github": "",
+          "portfolio": ""
+        },
+        "summary": "",
+        "experience": [
+          {
+            "company": "",
+            "role": "",
+            "duration": "",
+            "highlights": [
+              ""
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "",
+            "degree": "",
+            "year": ""
+          }
+        ],
+        "skills": [],
+        "projects": [
+          {
+            "name": "",
+            "description": "",
+            "link": ""
+          }
+        ],
+        "certifications": [],
+        "languages": []
+      }
+    },
+    {
+      "id": "11e0726c-5165-4846-ae40-33b7e9efee9a",
+      "createdAt": "2026-07-09T16:21:55.650Z",
+      "updatedAt": "2026-07-09T16:21:58.496Z",
+      "userId": "851b9417-188e-4817-ba2b-63d224d9166e",
+      "title": "My Modern Resume",
+      "templateId": "modern",
+      "content": {
+        "templateId": "modern",
+        "personalInfo": {
+          "fullName": "",
+          "email": "",
+          "phone": "",
+          "location": "",
+          "headline": "",
+          "linkedin": "",
+          "github": "",
+          "portfolio": ""
+        },
+        "summary": "",
+        "experience": [
+          {
+            "company": "",
+            "role": "",
+            "duration": "",
+            "highlights": [
+              ""
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "",
+            "degree": "",
+            "year": ""
+          }
+        ],
+        "skills": [],
+        "projects": [
+          {
+            "name": "",
+            "description": "",
+            "link": ""
+          }
+        ],
+        "certifications": [],
+        "languages": []
+      }
+    },
+    {
+      "id": "d1bcb068-7737-4323-a073-1ee30f278a90",
+      "createdAt": "2026-07-09T17:52:56.815Z",
+      "updatedAt": "2026-07-09T18:46:09.267Z",
+      "userId": "20c82e12-2adb-49db-b79a-cc0363531d06",
+      "title": "My Modern Resume",
+      "templateId": "modern",
+      "content": {
+        "templateId": "modern",
+        "personalInfo": {
+          "fullName": "",
+          "email": "",
+          "phone": "",
+          "location": "",
+          "headline": "",
+          "linkedin": "",
+          "github": "",
+          "portfolio": ""
+        },
+        "summary": "Exprienced in web development",
+        "experience": [
+          {
+            "company": "",
+            "role": "",
+            "duration": "",
+            "highlights": [
+              ""
+            ]
+          }
+        ],
+        "education": [],
+        "skills": [],
+        "projects": [
+          {
+            "name": "",
+            "description": "",
+            "link": ""
+          }
+        ],
+        "certifications": [],
+        "languages": []
+      }
+    },
+    {
+      "id": "1f420253-f3db-475c-8750-1379cd398edc",
+      "createdAt": "2026-07-09T18:00:17.760Z",
+      "updatedAt": "2026-07-09T18:00:17.760Z",
+      "userId": "e70e38f6-b8a4-49d2-bc68-ce5b97c78977",
       "title": "My Modern Resume",
       "templateId": "modern",
       "content": {

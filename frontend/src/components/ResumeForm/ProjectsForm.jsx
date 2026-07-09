@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Plus, Trash2, Sparkles } from 'lucide-react';
+import { Plus, Trash2, Sparkles, FolderGit2, Link2, FileText } from 'lucide-react';
 import { useResume } from '../../context/ResumeContext';
 import { aiService } from '../../services/aiService';
 import toast from 'react-hot-toast';
@@ -30,25 +30,34 @@ export default function ProjectsForm() {
   };
 
   return (
-    <div className="space-y-4">
-      <div className="flex items-center justify-between">
-        <div>
-          <h3 className="text-white font-semibold text-base">Projects</h3>
-          <p className="text-white/45 text-xs mt-0.5">Showcase your best work.</p>
+    <div className="space-y-6">
+      <div className="flex items-center justify-between pb-3 border-b border-white/[0.05]">
+        <div className="flex items-center gap-2.5">
+          <div className="p-2 bg-brand-500/10 border border-brand-500/25 rounded-lg text-brand-400">
+            <FolderGit2 size={18} />
+          </div>
+          <div>
+            <h3 className="text-white font-display font-bold text-lg tracking-tight">Projects</h3>
+            <p className="text-white/40 text-xs mt-0.5">Showcase your best personal and professional work.</p>
+          </div>
         </div>
         <button
           onClick={() => addArrayItem('projects', { ...EMPTY_PROJECT })}
-          className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold text-[#a5b4fc] bg-[rgba(99,102,241,0.1)] border border-[rgba(99,102,241,0.25)] rounded-lg hover:bg-[rgba(99,102,241,0.2)] hover:border-[rgba(99,102,241,0.4)] hover:text-white transition-all cursor-pointer transform hover:-translate-y-0.5"
+          className="flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold text-white bg-gradient-to-r from-brand-500/80 to-purple-600/80 hover:from-brand-500 hover:to-purple-600 border border-brand-400/30 hover:border-brand-400/50 rounded-lg transition-all cursor-pointer shadow-lg shadow-brand-500/10 hover:shadow-brand-500/20 transform hover:-translate-y-0.5"
         >
-          <Plus size={13} /> Add
+          <Plus size={13} /> Add Project
         </button>
       </div>
 
       <div className="space-y-4">
         {projects.map((proj, idx) => (
-          <div key={idx} className="form-card rounded-xl p-5">
-            <div className="flex items-center justify-between mb-4 pb-2 border-b border-white/[0.04]">
-              <p className="text-sm font-semibold text-white/90 tracking-wide">{proj.name || `Project ${idx + 1}`}</p>
+          <div key={idx} className="form-card rounded-xl overflow-hidden">
+            {/* Card Header */}
+            <div className="flex items-center justify-between px-5 py-3.5 border-b border-white/[0.06] bg-white/[0.02]">
+              <div className="flex items-center gap-2.5">
+                <FolderGit2 size={14} className="text-brand-400/70" />
+                <p className="text-sm font-semibold text-white/90 tracking-wide">{proj.name || `Project ${idx + 1}`}</p>
+              </div>
               <button
                 onClick={() => removeArrayItem('projects', idx)}
                 className="p-1.5 text-white/30 hover:text-red-400 transition-colors rounded-lg hover:bg-red-500/10 cursor-pointer"
@@ -57,30 +66,42 @@ export default function ProjectsForm() {
               </button>
             </div>
 
-            <div className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs text-white/70 font-semibold mb-1.5 tracking-wide">Project Name</label>
-                  <input
-                    className="input-dark w-full px-3.5 py-2.5 rounded-xl text-sm"
-                    placeholder="AI Resume Builder"
-                    value={proj.name}
-                    onChange={(e) => updateArrayItem('projects', idx, 'name', e.target.value)}
-                  />
+            {/* Card Body */}
+            <div className="p-5 space-y-5">
+              {/* Project Name + Link */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="flex flex-col gap-2">
+                  <label className="text-[10px] font-bold text-white/45 tracking-widest uppercase">Project Name</label>
+                  <div className="relative">
+                    <FolderGit2 size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-white/30" />
+                    <input
+                      className="input-dark w-full pr-4 py-3 rounded-xl text-sm"
+                      placeholder="AI Resume Builder"
+                      value={proj.name}
+                      onChange={(e) => updateArrayItem('projects', idx, 'name', e.target.value)}
+                      style={{ paddingLeft: '38px' }}
+                    />
+                  </div>
                 </div>
-                <div>
-                  <label className="block text-xs text-white/70 font-semibold mb-1.5 tracking-wide">GitHub / Live Link</label>
-                  <input
-                    className="input-dark w-full px-3.5 py-2.5 rounded-xl text-sm"
-                    placeholder="github.com/username/project"
-                    value={proj.link}
-                    onChange={(e) => updateArrayItem('projects', idx, 'link', e.target.value)}
-                  />
+                <div className="flex flex-col gap-2">
+                  <label className="text-[10px] font-bold text-white/45 tracking-widest uppercase">GitHub / Live Link</label>
+                  <div className="relative">
+                    <Link2 size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-white/30" />
+                    <input
+                      className="input-dark w-full pr-4 py-3 rounded-xl text-sm"
+                      placeholder="github.com/username/project"
+                      value={proj.link}
+                      onChange={(e) => updateArrayItem('projects', idx, 'link', e.target.value)}
+                      style={{ paddingLeft: '38px' }}
+                    />
+                  </div>
                 </div>
               </div>
-              <div>
-                <div className="flex items-center justify-between mb-1.5">
-                  <label className="text-xs text-white/70 font-semibold tracking-wide">Description</label>
+
+              {/* Description */}
+              <div className="flex flex-col gap-2">
+                <div className="flex items-center justify-between">
+                  <label className="text-[10px] font-bold text-white/45 tracking-widest uppercase">Description</label>
                   <button
                     onClick={() => handleAIImprove(idx)}
                     disabled={improving === idx}
@@ -95,13 +116,17 @@ export default function ProjectsForm() {
                     {improving === idx ? 'Improving…' : 'AI Improve'}
                   </button>
                 </div>
-                <textarea
-                  className="input-dark w-full px-3.5 py-2.5 rounded-xl text-sm resize-none"
-                  rows={3}
-                  placeholder="Built a full-stack web app using React and Node.js that reduces resume creation time by 80%..."
-                  value={proj.description}
-                  onChange={(e) => updateArrayItem('projects', idx, 'description', e.target.value)}
-                />
+                <div className="relative">
+                  <FileText size={14} className="absolute left-3.5 top-3.5 text-white/30" />
+                  <textarea
+                    className="input-dark w-full pr-4 py-3 rounded-xl text-sm resize-none"
+                    rows={4}
+                    placeholder="Built a full-stack web app using React and Node.js that reduces resume creation time by 80%..."
+                    value={proj.description}
+                    onChange={(e) => updateArrayItem('projects', idx, 'description', e.target.value)}
+                    style={{ paddingLeft: '38px' }}
+                  />
+                </div>
               </div>
             </div>
           </div>

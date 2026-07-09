@@ -24,7 +24,6 @@ export default function TemplatesPage() {
         title: `My ${TEMPLATES.find(t => t.id === selected)?.name} Resume`,
         templateId: selected,
       });
-      toast.success('Resume created!');
       navigate(`/editor/${resume.id}`);
     } catch {
       toast.error('Failed to create resume.');

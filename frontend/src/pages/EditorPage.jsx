@@ -103,16 +103,19 @@ export default function EditorPage() {
   const handleDownloadPDF = async () => {
     const tid = toast.loading('Generating PDF…');
     try {
-      const { default: html2canvas } = await import('html2canvas');
+      const { default: html2canvas } = await import('html2canvas-pro');
       const { jsPDF } = await import('jspdf');
       const el = document.getElementById('print-area');
-      if (!el) return;
+      if (!el) throw new Error("Print area element not found in DOM");
       const canvas = await html2canvas(el, { scale: 2, useCORS: true, backgroundColor: '#ffffff' });
       const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
       pdf.addImage(canvas.toDataURL('image/jpeg', 0.98), 'JPEG', 0, 0, 210, 297);
       pdf.save(`${resumeTitle.replace(/\s+/g, '_')}.pdf`);
       toast.success('PDF downloaded!', { id: tid });
-    } catch { toast.error('PDF failed.', { id: tid }); }
+    } catch (err) {
+      console.error("PDF download error:", err);
+      toast.error(`PDF failed: ${err.message || err}`, { id: tid });
+    }
   };
 
   const handleAIGenerate = async () => {
@@ -292,11 +295,16 @@ export default function EditorPage() {
                 <>
                   <PersonalInfoForm />
                   <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(99,102,241,0.35), transparent)', margin: '24px 0' }} />
-                  <div>
-                    <div style={{ display: 'flex', alignItems: 'center', justifycontent: 'space-between', justifyContent: 'space-between', marginBottom: 12 }}>
-                      <div>
-                        <h3 style={{ fontSize: 14, fontWeight: 700, color: '#f1f5f9' }}>Professional Summary</h3>
-                        <p style={{ fontSize: 11, color: 'rgba(241,245,249,0.35)', marginTop: 2 }}>A compelling 2–3 sentence overview</p>
+                  <div className="space-y-6">
+                    <div className="flex items-center justify-between pb-3 border-b border-white/[0.05]">
+                      <div className="flex items-center gap-2.5">
+                        <div className="p-2 bg-brand-500/10 border border-brand-500/25 rounded-lg text-brand-400">
+                          <Sparkles size={18} />
+                        </div>
+                        <div>
+                          <h3 className="text-white font-display font-bold text-lg tracking-tight">Professional Summary</h3>
+                          <p className="text-white/40 text-xs mt-0.5">A compelling 2–3 sentence overview of your profile.</p>
+                        </div>
                       </div>
                       <button onClick={handleImproveSummary}
                         style={{
@@ -308,10 +316,16 @@ export default function EditorPage() {
                         <Sparkles size={11} /> AI Improve
                       </button>
                     </div>
-                    <textarea rows={4} className="input-field"
-                      placeholder="Experienced software engineer with 3+ years building scalable web applications…"
-                      value={resumeData.summary} onChange={e => updateField('summary', e.target.value)}
-                      style={{ width: '100%', padding: '12px 14px', borderRadius: 14, fontSize: 13, resize: 'none', lineHeight: 1.6 }} />
+
+                    <div className="form-card rounded-xl p-5">
+                      <div className="flex flex-col gap-1.5">
+                        <label className="text-[10px] font-bold text-white/45 tracking-wider uppercase">Summary</label>
+                        <textarea rows={4} className="input-dark w-full pr-3.5 py-3 rounded-xl text-sm resize-none"
+                          placeholder="Experienced software engineer with 3+ years building scalable web applications…"
+                          value={resumeData.summary} onChange={e => updateField('summary', e.target.value)}
+                          style={{ lineHeight: 1.6 }} />
+                      </div>
+                    </div>
                   </div>
                 </>
               )}

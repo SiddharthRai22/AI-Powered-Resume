@@ -32,6 +32,7 @@ export default function DashboardPage() {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [deleting, setDeleting] = useState(null);
+  const [deleteTarget, setDeleteTarget] = useState(null);
   const [hoveredCard, setHoveredCard] = useState(null);
 
   useEffect(() => {
@@ -41,13 +42,19 @@ export default function DashboardPage() {
       .finally(() => setLoading(false));
   }, []);
 
-  const handleDelete = async (id, title) => {
-    if (!confirm(`Delete "${title}"? This cannot be undone.`)) return;
+  const handleDelete = (id, title) => {
+    setDeleteTarget({ id, title });
+  };
+
+  const confirmDelete = async () => {
+    if (!deleteTarget) return;
+    const { id } = deleteTarget;
     setDeleting(id);
     try {
       await resumeService.delete(id);
       setResumes(prev => prev.filter(r => r.id !== id));
       toast.success('Resume deleted.');
+      setDeleteTarget(null);
     } catch {
       toast.error('Failed to delete.');
     } finally {
@@ -171,6 +178,26 @@ export default function DashboardPage() {
                 </div>
               );
             })}
+          </div>
+        )}
+
+        {/* Delete Confirmation Modal */}
+        {deleteTarget && (
+          <div className="animate-fade-in" style={{ position: 'fixed', inset: 0, zIndex: 300, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20, background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(8px)' }}>
+            <div className="glass-card" style={{ width: '100%', maxWidth: 400, borderRadius: 20, padding: 24, boxShadow: '0 24px 80px rgba(0,0,0,0.5)', background: '#13152a' }}>
+              <h3 style={{ fontSize: 18, fontWeight: 700, color: '#f1f5f9', marginBottom: 10 }}>Do you want to delete this file?</h3>
+              <p style={{ fontSize: 13, color: 'rgba(241,245,249,0.45)', marginBottom: 24, lineHeight: 1.5 }}>
+                Delete "{deleteTarget.title}"? This action cannot be undone and you will lose all progress on this resume.
+              </p>
+              <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 10 }}>
+                <button onClick={() => setDeleteTarget(null)} className="btn-secondary" style={{ padding: '9px 18px', borderRadius: 10, fontSize: 13, cursor: 'pointer' }}>
+                  Cancel
+                </button>
+                <button onClick={confirmDelete} disabled={deleting === deleteTarget.id} className="btn-primary" style={{ padding: '9px 20px', borderRadius: 10, fontSize: 13, cursor: 'pointer', background: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)', boxShadow: '0 4px 14px rgba(239, 68, 68, 0.35)', border: 'none', color: '#fff', fontWeight: 600 }}>
+                  {deleting === deleteTarget.id ? <span className="spinner" style={{ width: 14, height: 14 }} /> : 'Delete'}
+                </button>
+              </div>
+            </div>
           </div>
         )}
       </div>

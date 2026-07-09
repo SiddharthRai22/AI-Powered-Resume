@@ -1,10 +1,8 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Sparkles, Mail, Lock, User, Eye, EyeOff, ArrowRight, CheckCircle } from 'lucide-react';
+import { Sparkles, Mail, Lock, User, Eye, EyeOff, ArrowRight } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
-
-const PERKS = ['AI resume generation', 'Live preview', '4 pro templates', 'PDF export'];
 
 export default function RegisterPage() {
   const { register } = useAuth();
@@ -49,16 +47,6 @@ export default function RegisterPage() {
             </span>
           </div>
           <h1 style={{ fontSize: 26, fontWeight: 900, color: '#f1f5f9', letterSpacing: '-0.5px' }}>Create your account</h1>
-          <p style={{ color: 'rgba(241,245,249,0.4)', fontSize: 14, marginTop: 5 }}>Free forever · No credit card required</p>
-        </div>
-
-        {/* Perks */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px 16px', justifyContent: 'center', marginBottom: 22 }}>
-          {PERKS.map(p => (
-            <span key={p} style={{ display: 'inline-flex', alignItems: 'center', gap: 5, fontSize: 11, color: 'rgba(241,245,249,0.45)' }}>
-              <CheckCircle size={11} color="#4ade80" /> {p}
-            </span>
-          ))}
         </div>
 
         {/* Card */}
