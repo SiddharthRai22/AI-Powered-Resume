@@ -1,0 +1,230 @@
+{
+  "users": [
+    {
+      "id": "6d8e33d3-a20c-48a0-88a0-59af772e8f1b",
+      "createdAt": "2026-07-09T04:12:10.189Z",
+      "fullName": "Siddharth",
+      "email": "siddharthkumarrai4@gmail.com",
+      "password": "$2b$12$cPdQl7npUaBGX/qWmFUWu.i.nCMgWxfC.reMQ20eFcRCZEtjPRb3C"
+    },
+    {
+      "id": "ecba3c4b-2521-4720-b1ea-43128db7e4bd",
+      "createdAt": "2026-07-09T04:30:48.949Z",
+      "fullName": "ladu",
+      "email": "ladu@12gmail.com",
+      "password": "$2b$12$RB.iJqU4feWs/eicjWGpJexAYJEBuMj51t8UXD75EtrKwY6SfrbS2"
+    },
+    {
+      "id": "8d04133e-0656-499a-9682-6e44985b9cc1",
+      "createdAt": "2026-07-09T04:59:19.240Z",
+      "fullName": "Test User",
+      "email": "testuser_groq@example.com",
+      "password": "$2a$12$j.jfeY9lZe1LIvDL5rCuCejOdbxs9E748jNzzkHLn/qVBIVxqJnTq"
+    },
+    {
+      "id": "b06f317d-fd5c-4790-a755-856cd66665ad",
+      "createdAt": "2026-07-09T06:26:08.702Z",
+      "fullName": "ladu",
+      "email": "ladu_test@gmail.com",
+      "password": "$2a$12$DbTw5auPgy4nS8tcgOoefOmVUDDoiQec0nicGbka2cYMNjPvtIBGS"
+    }
+  ],
+  "resumes": [
+    {
+      "id": "ad61c0e3-4160-4f01-98e1-dc4b8a51ad8e",
+      "createdAt": "2026-07-09T04:12:22.831Z",
+      "updatedAt": "2026-07-09T04:12:35.714Z",
+      "userId": "6d8e33d3-a20c-48a0-88a0-59af772e8f1b",
+      "title": "My Modern Resume",
+      "templateId": "modern",
+      "content": {
+        "templateId": "modern",
+        "personalInfo": {
+          "fullName": "Siddharth Kumar rai",
+          "email": "siddharthkumarrai2004@gmail.com",
+          "phone": "4+94+9",
+          "location": "",
+          "headline": "",
+          "linkedin": "",
+          "github": "",
+          "portfolio": ""
+        },
+        "summary": "",
+        "experience": [
+          {
+            "company": "",
+            "role": "",
+            "duration": "",
+            "highlights": [
+              ""
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "",
+            "degree": "",
+            "year": ""
+          }
+        ],
+        "skills": [],
+        "projects": [
+          {
+            "name": "",
+            "description": "",
+            "link": ""
+          }
+        ],
+        "certifications": [],
+        "languages": []
+      }
+    },
+    {
+      "id": "4499663e-e139-4776-8333-3882775c4f95",
+      "createdAt": "2026-07-09T04:31:30.346Z",
+      "updatedAt": "2026-07-09T06:25:25.943Z",
+      "userId": "ecba3c4b-2521-4720-b1ea-43128db7e4bd",
+      "title": "My Modern Resume",
+      "templateId": "modern",
+      "content": {
+        "templateId": "modern",
+        "personalInfo": {
+          "fullName": "Siddharth Kumar rai",
+          "email": "siddharthkumarrai2004@gmail.com",
+          "phone": "12345678",
+          "location": "India",
+          "headline": "software engineer",
+          "linkedin": "ladu",
+          "github": "github@12",
+          "portfolio": "opaijf"
+        },
+        "summary": "i am software engineer with man project exprience",
+        "experience": [
+          {
+            "company": "",
+            "role": "",
+            "duration": "",
+            "highlights": [
+              ""
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "",
+            "degree": "",
+            "year": ""
+          }
+        ],
+        "skills": [],
+        "projects": [
+          {
+            "name": "",
+            "description": "",
+            "link": ""
+          }
+        ],
+        "certifications": [],
+        "languages": []
+      }
+    },
+    {
+      "id": "076fcad9-8a00-4f4e-99bf-250b0143cae6",
+      "createdAt": "2026-07-09T05:00:15.704Z",
+      "updatedAt": "2026-07-09T05:07:23.062Z",
+      "userId": "8d04133e-0656-499a-9682-6e44985b9cc1",
+      "title": "My Modern Resume",
+      "templateId": "modern",
+      "content": {
+        "templateId": "modern",
+        "personalInfo": {
+          "fullName": "",
+          "email": "",
+          "phone": "",
+          "location": "",
+          "headline": "",
+          "linkedin": "",
+          "github": "",
+          "portfolio": ""
+        },
+        "summary": "I am software engineer with many projects",
+        "experience": [
+          {
+            "company": "",
+            "role": "",
+            "duration": "",
+            "highlights": [
+              ""
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "",
+            "degree": "",
+            "year": ""
+          }
+        ],
+        "skills": [],
+        "projects": [
+          {
+            "name": "",
+            "description": "",
+            "link": ""
+          }
+        ],
+        "certifications": [],
+        "languages": []
+      }
+    },
+    {
+      "id": "1a8b38d3-9d53-47fe-b156-d165e6e00e3e",
+      "createdAt": "2026-07-09T06:27:00.076Z",
+      "updatedAt": "2026-07-09T06:27:02.947Z",
+      "userId": "b06f317d-fd5c-4790-a755-856cd66665ad",
+      "title": "My Modern Resume",
+      "templateId": "modern",
+      "content": {
+        "templateId": "modern",
+        "personalInfo": {
+          "fullName": "",
+          "email": "",
+          "phone": "",
+          "location": "",
+          "headline": "",
+          "linkedin": "",
+          "github": "",
+          "portfolio": ""
+        },
+        "summary": "",
+        "experience": [
+          {
+            "company": "",
+            "role": "",
+            "duration": "",
+            "highlights": [
+              ""
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "",
+            "degree": "",
+            "year": ""
+          }
+        ],
+        "skills": [],
+        "projects": [
+          {
+            "name": "",
+            "description": "",
+            "link": ""
+          }
+        ],
+        "certifications": [],
+        "languages": []
+      }
+    }
+  ]
+}

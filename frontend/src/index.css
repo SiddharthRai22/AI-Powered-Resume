@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@500;600;700;800&display=swap');
+@import "tailwindcss";
+
+/* ── Tailwind v4 Custom Theme ─────────────────────────────────────────────── */
+@theme {
+  --color-brand-50:  #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-200: #c7d2fe;
+  --color-brand-300: #a5b4fc;
+  --color-brand-400: #818cf8;
+  --color-brand-500: #6366f1;
+  --color-brand-600: #4f46e5;
+  --color-brand-700: #4338ca;
+  --color-brand-800: #3730a3;
+  --color-brand-900: #312e81;
+
+  --font-family-sans: 'Inter', system-ui, sans-serif;
+  --font-family-display: 'Outfit', system-ui, sans-serif;
+}
+
+/* ── Base Reset ───────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: #0b0d1a;
+  color: #f1f5f9;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── Custom Scrollbar ─────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: #0b0d1a; }
+::-webkit-scrollbar-thumb { background: #4f46e5; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #6366f1; }
+
+/* ── Glass Morphism ───────────────────────────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-card {
+  background: rgba(15, 17, 35, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+}
+
+/* ── Gradient Text ────────────────────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #818cf8 0%, #a78bfa 50%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Buttons ──────────────────────────────────────────────────────────────── */
+.btn-primary {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: #fff;
+  font-weight: 700;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(99, 102, 241, 0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.5);
+}
+
+.btn-primary:active { transform: scale(0.98); }
+
+.btn-secondary {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.85);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+/* ── Input Styles ─────────────────────────────────────────────────────────── */
+.input-field, .input-dark {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #f1f5f9;
+  font-family: inherit;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+}
+
+.input-field::placeholder, .input-dark::placeholder {
+  color: rgba(241, 245, 249, 0.25);
+}
+
+.input-field:hover, .input-dark:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.input-field:focus, .input-dark:focus {
+  border-color: #6366f1;
+  background: rgba(99, 102, 241, 0.04);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15), inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ── Form Cards ────────────────────────────────────────────────────────── */
+.form-card {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-left: 3px solid #6366f1;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+}
+
+.form-card:hover {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(99, 102, 241, 0.25);
+  border-left-color: #8b5cf6;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ── Card Hover ───────────────────────────────────────────────────────────── */
+.card-hover {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(99, 102, 241, 0.2);
+  border-color: rgba(99, 102, 241, 0.35) !important;
+}
+
+/* ── Animations ───────────────────────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(99,102,241,0.4); }
+  70%  { box-shadow: 0 0 0 10px rgba(99,102,241,0); }
+  100% { box-shadow: 0 0 0 0 rgba(99,102,241,0); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.55s ease forwards;
+}
+.animate-fade-in { animation: fadeIn 0.4s ease forwards; }
+.animate-float   { animation: float 5s ease-in-out infinite; }
+
+.delay-100 { animation-delay: 0.10s; }
+.delay-200 { animation-delay: 0.20s; }
+.delay-300 { animation-delay: 0.30s; }
+.delay-400 { animation-delay: 0.40s; }
+.delay-500 { animation-delay: 0.50s; }
+
+/* ── Gradient Orbs ────────────────────────────────────────────────────────── */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+.orb-brand { background: radial-gradient(circle, rgba(99,102,241,0.25) 0%, transparent 70%); }
+.orb-purple { background: radial-gradient(circle, rgba(139,92,246,0.2) 0%, transparent 70%); }
+.orb-cyan   { background: radial-gradient(circle, rgba(6,182,212,0.15) 0%, transparent 70%); }
+
+/* ── Resume Paper ─────────────────────────────────────────────────────────── */
+.resume-paper {
+  background: #ffffff;
+  color: #1a1a2e;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Section Divider ──────────────────────────────────────────────────────── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(99,102,241,0.4), transparent);
+}
+
+/* ── Spinner ──────────────────────────────────────────────────────────────── */
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,0.25);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+
+/* ── Utility overrides ────────────────────────────────────────────────────── */
+/* Because Tailwind v4 doesn't know brand-* unless @theme is set */
+.text-brand-300 { color: #a5b4fc; }
+.text-brand-400 { color: #818cf8; }
+.text-brand-500 { color: #6366f1; }
+.bg-brand-500   { background-color: #6366f1; }
+.border-brand-500 { border-color: #6366f1; }
+
+/* old btn-gradient alias */
+.btn-gradient {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: #fff;
+  font-weight: 700;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(99, 102, 241, 0.35);
+}
+.btn-gradient:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.5);
+}
+
+/* ── Responsive helpers ───────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .glass { backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .glass-card { backdrop-filter: none; }
+}
