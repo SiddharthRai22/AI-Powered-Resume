@@ -1,54 +1,143 @@
 /**
- * Classic Resume Template — Traditional single-column design.
- * Clean serif-inspired look with clean dividers.
+ * Classic Resume Template — Refined single-column design with elegant typography.
+ * Inspired by Harvard/traditional formats with premium serif-inspired feel.
  */
 
 export default function ClassicTemplate({ data }) {
-  const { personalInfo = {}, summary = '', experience = [], education = [], skills = [], projects = [], certifications = [], languages = [] } = data;
+  const {
+    personalInfo = {},
+    summary = '',
+    experience = [],
+    education = [],
+    skills = [],
+    projects = [],
+    certifications = [],
+    languages = [],
+  } = data;
 
   return (
-    <div className="resume-paper w-full min-h-[1056px] text-[#1a1a1a] font-['Inter',sans-serif] text-sm px-10 py-8">
-
-      {/* ── Header ──────────────────────────────────────────────────── */}
-      <div className="text-center border-b-2 border-[#1a1a1a] pb-4 mb-5">
-        <h1 className="text-3xl font-black tracking-tight uppercase">{personalInfo.fullName || 'Your Name'}</h1>
+    <div
+      className="resume-paper w-full min-h-[1056px] font-['Inter',sans-serif] text-sm"
+      style={{ color: '#1C1C1E', background: '#fff', padding: '44px 52px' }}
+    >
+      {/* ── Header ─────────────────────────────────────────────────── */}
+      <div style={{ textAlign: 'center', marginBottom: 24 }}>
+        <h1
+          style={{
+            fontSize: 28,
+            fontWeight: 800,
+            letterSpacing: '-0.5px',
+            color: '#1C1C1E',
+            textTransform: 'uppercase',
+            marginBottom: 4,
+          }}
+        >
+          {personalInfo.fullName || 'Your Name'}
+        </h1>
         {personalInfo.headline && (
-          <p className="text-gray-600 mt-1 text-sm font-medium">{personalInfo.headline}</p>
+          <p style={{ fontSize: 12, color: '#6B6B6B', fontWeight: 500, letterSpacing: '0.5px', marginBottom: 10 }}>
+            {personalInfo.headline}
+          </p>
         )}
-        <div className="flex flex-wrap justify-center gap-3 mt-2 text-xs text-gray-600">
-          {personalInfo.email && <span>{personalInfo.email}</span>}
-          {personalInfo.phone && <span>| {personalInfo.phone}</span>}
-          {personalInfo.location && <span>| {personalInfo.location}</span>}
-          {personalInfo.linkedin && <span>| {personalInfo.linkedin}</span>}
-          {personalInfo.github && <span>| {personalInfo.github}</span>}
+        {/* Thin double-rule accent line */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, margin: '10px 0' }}>
+          <div style={{ flex: 1, maxWidth: 60, height: 1, background: '#1C1C1E' }} />
+          <div style={{ width: 5, height: 5, borderRadius: '50%', background: '#1C1C1E' }} />
+          <div style={{ flex: 1, maxWidth: 60, height: 1, background: '#1C1C1E' }} />
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            gap: '4px 0',
+            fontSize: 10.5,
+            color: '#4A4A4A',
+          }}
+        >
+          {[
+            personalInfo.email,
+            personalInfo.phone,
+            personalInfo.location,
+            personalInfo.linkedin,
+            personalInfo.github,
+            personalInfo.portfolio,
+          ]
+            .filter(Boolean)
+            .map((item, i, arr) => (
+              <span key={i} style={{ display: 'inline-flex', alignItems: 'center' }}>
+                <span>{item}</span>
+                {i < arr.length - 1 && (
+                  <span style={{ margin: '0 8px', color: '#BDBDBD' }}>|</span>
+                )}
+              </span>
+            ))}
         </div>
       </div>
 
       {/* ── Summary ─────────────────────────────────────────────────── */}
       {summary && (
-        <Section title="Objective / Summary">
-          <p className="text-gray-700 leading-relaxed">{summary}</p>
-        </Section>
+        <ClassicSection title="Professional Summary">
+          <p style={{ color: '#3D3D3D', lineHeight: 1.7, fontSize: 12 }}>{summary}</p>
+        </ClassicSection>
       )}
 
       {/* ── Experience ──────────────────────────────────────────────── */}
       {experience.some((e) => e.company || e.role) && (
-        <Section title="Professional Experience">
-          <div className="space-y-4">
+        <ClassicSection title="Professional Experience">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
             {experience.map((exp, i) =>
               exp.company || exp.role ? (
                 <div key={i}>
-                  <div className="flex justify-between items-baseline">
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 3 }}>
                     <div>
-                      <span className="font-bold text-[#1a1a1a]">{exp.role}</span>
-                      {exp.company && <span className="text-gray-700"> — {exp.company}</span>}
+                      <span style={{ fontWeight: 700, color: '#1C1C1E', fontSize: 12.5 }}>{exp.role}</span>
+                      {exp.company && (
+                        <span style={{ color: '#555', fontSize: 12, fontWeight: 400 }}> — {exp.company}</span>
+                      )}
                     </div>
-                    {exp.duration && <span className="text-xs text-gray-500">{exp.duration}</span>}
+                    {exp.duration && (
+                      <span
+                        style={{
+                          fontSize: 10.5,
+                          color: '#777',
+                          whiteSpace: 'nowrap',
+                          marginLeft: 8,
+                          fontStyle: 'italic',
+                        }}
+                      >
+                        {exp.duration}
+                      </span>
+                    )}
                   </div>
-                  {exp.highlights?.length > 0 && (
-                    <ul className="mt-1.5 space-y-0.5 pl-3">
+                  {exp.highlights?.filter(Boolean).length > 0 && (
+                    <ul style={{ paddingLeft: 0, margin: '4px 0 0 0', listStyle: 'none' }}>
                       {exp.highlights.filter(Boolean).map((h, j) => (
-                        <li key={j} className="list-disc text-gray-700 text-xs leading-relaxed">{h}</li>
+                        <li
+                          key={j}
+                          style={{
+                            fontSize: 11.5,
+                            color: '#444',
+                            lineHeight: 1.65,
+                            paddingLeft: 14,
+                            position: 'relative',
+                            marginBottom: 2,
+                          }}
+                        >
+                          <span
+                            style={{
+                              position: 'absolute',
+                              left: 0,
+                              top: '0.45em',
+                              width: 4,
+                              height: 4,
+                              borderRadius: '50%',
+                              background: '#1C1C1E',
+                              display: 'inline-block',
+                            }}
+                          />
+                          {h}
+                        </li>
                       ))}
                     </ul>
                   )}
@@ -56,67 +145,89 @@ export default function ClassicTemplate({ data }) {
               ) : null
             )}
           </div>
-        </Section>
+        </ClassicSection>
       )}
 
       {/* ── Education ───────────────────────────────────────────────── */}
       {education.some((e) => e.institution) && (
-        <Section title="Education">
-          <div className="space-y-2">
+        <ClassicSection title="Education">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             {education.map((edu, i) =>
               edu.institution ? (
-                <div key={i} className="flex justify-between items-baseline">
+                <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                   <div>
-                    <span className="font-bold text-[#1a1a1a]">{edu.degree}</span>
-                    {edu.institution && <span className="text-gray-700"> — {edu.institution}</span>}
+                    <span style={{ fontWeight: 700, color: '#1C1C1E', fontSize: 12 }}>{edu.degree}</span>
+                    {edu.institution && (
+                      <span style={{ color: '#555', fontSize: 11.5 }}> — {edu.institution}</span>
+                    )}
                   </div>
-                  {edu.year && <span className="text-xs text-gray-500">{edu.year}</span>}
+                  {edu.year && (
+                    <span style={{ fontSize: 10.5, color: '#777', fontStyle: 'italic', whiteSpace: 'nowrap', marginLeft: 8 }}>
+                      {edu.year}
+                    </span>
+                  )}
                 </div>
               ) : null
             )}
           </div>
-        </Section>
+        </ClassicSection>
       )}
 
       {/* ── Skills ──────────────────────────────────────────────────── */}
       {skills.length > 0 && (
-        <Section title="Skills">
-          <p className="text-gray-700 leading-relaxed">{skills.join(' • ')}</p>
-        </Section>
+        <ClassicSection title="Core Competencies">
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 0' }}>
+            {skills.map((skill, i) => (
+              <span key={i} style={{ fontSize: 11.5, color: '#3D3D3D' }}>
+                {skill}{i < skills.length - 1 && <span style={{ color: '#BDBDBD', margin: '0 8px' }}>•</span>}
+              </span>
+            ))}
+          </div>
+        </ClassicSection>
       )}
 
       {/* ── Projects ────────────────────────────────────────────────── */}
       {projects.some((p) => p.name) && (
-        <Section title="Projects">
-          <div className="space-y-2">
+        <ClassicSection title="Projects">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
             {projects.map((proj, i) =>
               proj.name ? (
                 <div key={i}>
-                  <span className="font-bold text-[#1a1a1a]">{proj.name}</span>
-                  {proj.link && <span className="text-gray-500 text-xs ml-2">({proj.link})</span>}
-                  {proj.description && <p className="text-gray-700 text-xs mt-0.5 leading-relaxed">{proj.description}</p>}
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
+                    <span style={{ fontWeight: 700, color: '#1C1C1E', fontSize: 12 }}>{proj.name}</span>
+                    {proj.link && (
+                      <span style={{ fontSize: 10, color: '#888' }}>{proj.link}</span>
+                    )}
+                  </div>
+                  {proj.description && (
+                    <p style={{ fontSize: 11.5, color: '#444', marginTop: 2, lineHeight: 1.6 }}>{proj.description}</p>
+                  )}
                 </div>
               ) : null
             )}
           </div>
-        </Section>
+        </ClassicSection>
       )}
 
-      {/* ── Certifications & Languages ───────────────────────────────── */}
+      {/* ── Certifications & Languages ──────────────────────────────── */}
       {(certifications?.length > 0 || languages?.length > 0) && (
-        <div className="flex gap-8">
+        <div style={{ display: 'flex', gap: 32 }}>
           {certifications?.length > 0 && (
-            <div className="flex-1">
-              <Section title="Certifications">
-                <p className="text-gray-700">{certifications.join(' • ')}</p>
-              </Section>
+            <div style={{ flex: 1 }}>
+              <ClassicSection title="Certifications">
+                <p style={{ fontSize: 11.5, color: '#3D3D3D', lineHeight: 1.65 }}>
+                  {certifications.join(' • ')}
+                </p>
+              </ClassicSection>
             </div>
           )}
           {languages?.length > 0 && (
-            <div className="flex-1">
-              <Section title="Languages">
-                <p className="text-gray-700">{languages.join(' • ')}</p>
-              </Section>
+            <div style={{ flex: 1 }}>
+              <ClassicSection title="Languages">
+                <p style={{ fontSize: 11.5, color: '#3D3D3D', lineHeight: 1.65 }}>
+                  {languages.join(' • ')}
+                </p>
+              </ClassicSection>
             </div>
           )}
         </div>
@@ -125,12 +236,29 @@ export default function ClassicTemplate({ data }) {
   );
 }
 
-function Section({ title, children }) {
+function ClassicSection({ title, children }) {
   return (
-    <section className="mb-4">
-      <h2 className="text-xs font-black uppercase tracking-widest text-[#1a1a1a] border-b border-gray-300 pb-0.5 mb-2">
-        {title}
-      </h2>
+    <section style={{ marginBottom: 18 }}>
+      <div style={{ marginBottom: 8 }}>
+        <h2
+          style={{
+            fontSize: 10,
+            fontWeight: 800,
+            textTransform: 'uppercase',
+            letterSpacing: '2px',
+            color: '#1C1C1E',
+            marginBottom: 4,
+          }}
+        >
+          {title}
+        </h2>
+        <div
+          style={{
+            height: 1.5,
+            background: 'linear-gradient(90deg, #1C1C1E 0%, #9E9E9E 60%, transparent 100%)',
+          }}
+        />
+      </div>
       {children}
     </section>
   );

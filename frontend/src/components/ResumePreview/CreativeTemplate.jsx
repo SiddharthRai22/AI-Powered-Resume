@@ -1,81 +1,229 @@
 /**
- * Creative Resume Template — Bold color blocks with modern asymmetric layout.
- * Strong visual identity with gradient header and colored section markers.
+ * Creative Resume Template — Bold, expressive design with vibrant gradients.
+ * A standout layout that merges artistry with professionalism.
  */
 
 export default function CreativeTemplate({ data }) {
-  const { personalInfo = {}, summary = '', experience = [], education = [], skills = [], projects = [], certifications = [], languages = [] } = data;
+  const {
+    personalInfo = {},
+    summary = '',
+    experience = [],
+    education = [],
+    skills = [],
+    projects = [],
+    certifications = [],
+    languages = [],
+  } = data;
+
+  const PURPLE  = '#7C3AED';
+  const INDIGO  = '#4F46E5';
+  const TEAL    = '#0D9488';
+  const DARK    = '#0F172A';
 
   return (
-    <div className="resume-paper w-full min-h-[1056px] font-['Inter',sans-serif] text-sm overflow-hidden">
+    <div
+      className="resume-paper w-full min-h-[1056px] font-['Inter',sans-serif] text-sm overflow-hidden"
+      style={{ color: DARK, background: '#fff' }}
+    >
+      {/* ── Gradient Header ─────────────────────────────────────────── */}
+      <div
+        style={{
+          background: `linear-gradient(135deg, ${DARK} 0%, #1E1B4B 55%, #312E81 100%)`,
+          padding: '32px 40px 28px',
+          position: 'relative',
+          overflow: 'hidden',
+        }}
+      >
+        {/* Decorative blobs */}
+        <div
+          style={{
+            position: 'absolute',
+            top: -30,
+            right: -20,
+            width: 120,
+            height: 120,
+            borderRadius: '50%',
+            background: `${PURPLE}25`,
+            filter: 'blur(20px)',
+            pointerEvents: 'none',
+          }}
+        />
+        <div
+          style={{
+            position: 'absolute',
+            bottom: -10,
+            left: '40%',
+            width: 80,
+            height: 80,
+            borderRadius: '50%',
+            background: `${TEAL}20`,
+            filter: 'blur(16px)',
+            pointerEvents: 'none',
+          }}
+        />
 
-      {/* ── Header Block ─────────────────────────────────────────────── */}
-      <div style={{ background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%)' }} className="px-8 py-8 text-white">
-        <div className="flex justify-between items-start">
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', position: 'relative' }}>
           <div>
-            <h1 className="text-[32px] font-black tracking-tight leading-none">
+            <h1
+              style={{
+                fontSize: 32,
+                fontWeight: 900,
+                color: '#fff',
+                letterSpacing: '-1px',
+                lineHeight: 1.05,
+                marginBottom: 6,
+              }}
+            >
               {personalInfo.fullName || 'Your Name'}
             </h1>
             {personalInfo.headline && (
-              <p style={{ color: '#4f6ef7' }} className="text-base font-semibold mt-2">
+              <p
+                style={{
+                  fontSize: 12,
+                  fontWeight: 600,
+                  letterSpacing: '1px',
+                  textTransform: 'uppercase',
+                  background: `linear-gradient(90deg, #A78BFA, #67E8F9)`,
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
+              >
                 {personalInfo.headline}
               </p>
             )}
           </div>
-          {/* Decorative element */}
-          <div style={{ background: 'rgba(79,110,247,0.2)', border: '1px solid rgba(79,110,247,0.4)' }}
-            className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl font-black"
-            style2="color:#4f6ef7">
-            <span style={{ color: '#4f6ef7', fontSize: '28px', fontWeight: 900 }}>
+
+          {/* Initials circle */}
+          <div
+            style={{
+              width: 54,
+              height: 54,
+              borderRadius: '50%',
+              background: `linear-gradient(135deg, ${PURPLE} 0%, ${INDIGO} 100%)`,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexShrink: 0,
+              boxShadow: `0 0 0 3px rgba(167,139,250,0.3)`,
+            }}
+          >
+            <span style={{ fontSize: 22, fontWeight: 900, color: '#fff' }}>
               {personalInfo.fullName?.[0] || 'R'}
             </span>
           </div>
         </div>
 
-        {/* Contact strip */}
-        <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }} className="flex flex-wrap gap-x-6 gap-y-1 mt-5 pt-4 text-xs text-white/70">
-          {personalInfo.email && <ContactItem icon="✉">{personalInfo.email}</ContactItem>}
-          {personalInfo.phone && <ContactItem icon="📞">{personalInfo.phone}</ContactItem>}
-          {personalInfo.location && <ContactItem icon="📍">{personalInfo.location}</ContactItem>}
-          {personalInfo.linkedin && <ContactItem icon="in">{personalInfo.linkedin}</ContactItem>}
-          {personalInfo.github && <ContactItem icon="⌥">{personalInfo.github}</ContactItem>}
-          {personalInfo.portfolio && <ContactItem icon="🌐">{personalInfo.portfolio}</ContactItem>}
+        {/* Contact row */}
+        <div
+          style={{
+            marginTop: 18,
+            paddingTop: 14,
+            borderTop: '1px solid rgba(255,255,255,0.08)',
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '5px 18px',
+          }}
+        >
+          {[
+            { icon: '✉', val: personalInfo.email },
+            { icon: '📞', val: personalInfo.phone },
+            { icon: '📍', val: personalInfo.location },
+            { icon: 'in', val: personalInfo.linkedin },
+            { icon: '⌥', val: personalInfo.github },
+            { icon: '🌐', val: personalInfo.portfolio },
+          ]
+            .filter((x) => x.val)
+            .map((x, i) => (
+              <span key={i} style={{ fontSize: 10.5, color: 'rgba(255,255,255,0.6)', display: 'flex', gap: 4, alignItems: 'center' }}>
+                <span style={{ color: '#A78BFA' }}>{x.icon}</span>
+                {x.val}
+              </span>
+            ))}
         </div>
       </div>
 
-      {/* ── Body ────────────────────────────────────────────────────── */}
-      <div className="flex">
+      {/* Rainbow accent bar */}
+      <div
+        style={{
+          height: 3,
+          background: `linear-gradient(90deg, ${PURPLE} 0%, ${INDIGO} 35%, ${TEAL} 100%)`,
+        }}
+      />
 
-        {/* Main column */}
-        <div className="flex-1 px-7 py-6 space-y-5 bg-white">
+      {/* ── Body ─────────────────────────────────────────────────────── */}
+      <div style={{ display: 'flex' }}>
+        {/* ── Main column ─────────────────────────────────────────── */}
+        <div style={{ flex: 1, padding: '24px 28px', display: 'flex', flexDirection: 'column', gap: 20 }}>
+
+          {/* About */}
           {summary && (
-            <Section color="#4f6ef7" title="About Me">
-              <p className="text-gray-700 leading-relaxed">{summary}</p>
-            </Section>
+            <section>
+              <CreativeSectionTitle color={INDIGO}>About Me</CreativeSectionTitle>
+              <p style={{ color: '#374151', lineHeight: 1.75, fontSize: 12 }}>{summary}</p>
+            </section>
           )}
 
+          {/* Experience */}
           {experience.some((e) => e.company || e.role) && (
-            <Section color="#7c4dff" title="Experience">
-              <div className="space-y-4">
+            <section>
+              <CreativeSectionTitle color={PURPLE}>Experience</CreativeSectionTitle>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                 {experience.map((exp, i) =>
                   exp.company || exp.role ? (
-                    <div key={i} className="pl-3" style={{ borderLeft: '2px solid #7c4dff' }}>
-                      <div className="flex justify-between items-start">
+                    <div
+                      key={i}
+                      style={{
+                        paddingLeft: 12,
+                        borderLeft: `2.5px solid ${PURPLE}`,
+                        position: 'relative',
+                      }}
+                    >
+                      {/* Timeline dot */}
+                      <div
+                        style={{
+                          position: 'absolute',
+                          left: -5,
+                          top: 4,
+                          width: 8,
+                          height: 8,
+                          borderRadius: '50%',
+                          background: PURPLE,
+                          border: '2px solid #fff',
+                          boxShadow: `0 0 0 1px ${PURPLE}`,
+                        }}
+                      />
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 3 }}>
                         <div>
-                          <p className="font-bold text-[#1a1a2e]">{exp.role}</p>
-                          <p className="text-xs font-medium" style={{ color: '#7c4dff' }}>{exp.company}</p>
+                          <p style={{ fontWeight: 700, fontSize: 12.5, color: DARK }}>{exp.role}</p>
+                          {exp.company && (
+                            <p style={{ fontSize: 11, fontWeight: 600, color: PURPLE, marginTop: 1 }}>{exp.company}</p>
+                          )}
                         </div>
                         {exp.duration && (
-                          <span className="text-[10px] px-2 py-0.5 rounded-full bg-purple-50 text-purple-600 font-medium whitespace-nowrap">
+                          <span
+                            style={{
+                              fontSize: 9.5,
+                              fontWeight: 600,
+                              color: '#7C3AED',
+                              background: '#F5F3FF',
+                              border: `1px solid ${PURPLE}25`,
+                              padding: '2px 8px',
+                              borderRadius: 99,
+                              whiteSpace: 'nowrap',
+                              marginLeft: 8,
+                            }}
+                          >
                             {exp.duration}
                           </span>
                         )}
                       </div>
                       {exp.highlights?.filter(Boolean).length > 0 && (
-                        <ul className="mt-2 space-y-1">
+                        <ul style={{ marginTop: 5, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 3 }}>
                           {exp.highlights.filter(Boolean).map((h, j) => (
-                            <li key={j} className="text-gray-600 text-xs leading-relaxed flex gap-1.5">
-                              <span style={{ color: '#7c4dff' }}>→</span> {h}
+                            <li key={j} style={{ display: 'flex', gap: 7, fontSize: 11.5, color: '#4B5563', lineHeight: 1.6 }}>
+                              <span style={{ color: PURPLE, flexShrink: 0, fontWeight: 700 }}>→</span>
+                              <span>{h}</span>
                             </li>
                           ))}
                         </ul>
@@ -84,71 +232,133 @@ export default function CreativeTemplate({ data }) {
                   ) : null
                 )}
               </div>
-            </Section>
+            </section>
           )}
 
+          {/* Projects */}
           {projects.some((p) => p.name) && (
-            <Section color="#06b6d4" title="Projects">
-              <div className="space-y-3">
+            <section>
+              <CreativeSectionTitle color={TEAL}>Projects</CreativeSectionTitle>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                 {projects.map((proj, i) =>
                   proj.name ? (
-                    <div key={i} className="p-3 rounded-lg" style={{ background: '#f0f9ff', border: '1px solid #bae6fd' }}>
-                      <div className="flex items-center justify-between">
-                        <p className="font-bold text-[#0c4a6e]">{proj.name}</p>
-                        {proj.link && <span className="text-[10px] text-cyan-600">{proj.link}</span>}
+                    <div
+                      key={i}
+                      style={{
+                        background: '#F0FDFA',
+                        border: `1px solid #99F6E4`,
+                        borderRadius: 8,
+                        padding: '8px 12px',
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <p style={{ fontWeight: 700, fontSize: 12, color: '#0F766E' }}>{proj.name}</p>
+                        {proj.link && (
+                          <span style={{ fontSize: 9.5, color: TEAL }}>{proj.link}</span>
+                        )}
                       </div>
-                      {proj.description && <p className="text-gray-600 text-xs mt-1 leading-relaxed">{proj.description}</p>}
+                      {proj.description && (
+                        <p style={{ fontSize: 11, color: '#374151', marginTop: 3, lineHeight: 1.6 }}>{proj.description}</p>
+                      )}
                     </div>
                   ) : null
                 )}
               </div>
-            </Section>
+            </section>
           )}
         </div>
 
-        {/* Sidebar */}
-        <div className="w-52 px-5 py-6 space-y-5" style={{ background: '#f8fafc', borderLeft: '1px solid #f1f5f9' }}>
+        {/* ── Sidebar ─────────────────────────────────────────────── */}
+        <div
+          style={{
+            width: 198,
+            background: '#FAFAFA',
+            borderLeft: '1px solid #F1F5F9',
+            padding: '24px 18px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 18,
+          }}
+        >
+          {/* Education */}
           {education.some((e) => e.institution) && (
-            <SideSection title="Education">
-              {education.map((edu, i) =>
-                edu.institution ? (
-                  <div key={i} className="mb-3">
-                    <p className="font-semibold text-xs text-[#1a1a2e]">{edu.degree}</p>
-                    <p className="text-[10px] text-gray-500">{edu.institution}</p>
-                    {edu.year && <p className="text-[10px] text-gray-400">{edu.year}</p>}
-                  </div>
-                ) : null
-              )}
-            </SideSection>
+            <section>
+              <CreativeSideTitle>Education</CreativeSideTitle>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                {education.map((edu, i) =>
+                  edu.institution ? (
+                    <div key={i}>
+                      <p style={{ fontWeight: 700, fontSize: 11, color: DARK, lineHeight: 1.4 }}>{edu.degree}</p>
+                      <p style={{ fontSize: 10.5, color: '#6B7280', marginTop: 1 }}>{edu.institution}</p>
+                      {edu.year && (
+                        <p style={{ fontSize: 10, color: '#9CA3AF', marginTop: 1 }}>{edu.year}</p>
+                      )}
+                    </div>
+                  ) : null
+                )}
+              </div>
+            </section>
           )}
 
+          {/* Skills */}
           {skills.length > 0 && (
-            <SideSection title="Skills">
-              <div className="space-y-1.5">
+            <section>
+              <CreativeSideTitle>Skills</CreativeSideTitle>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
                 {skills.map((skill, i) => (
-                  <div key={i} className="flex items-center gap-1.5">
-                    <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: '#4f6ef7' }} />
-                    <span className="text-xs text-gray-700">{skill}</span>
+                  <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
+                    <div
+                      style={{
+                        width: 6,
+                        height: 6,
+                        borderRadius: '50%',
+                        flexShrink: 0,
+                        background: `linear-gradient(135deg, ${PURPLE}, ${INDIGO})`,
+                      }}
+                    />
+                    <span style={{ fontSize: 11, color: '#374151' }}>{skill}</span>
                   </div>
                 ))}
               </div>
-            </SideSection>
+            </section>
           )}
 
+          {/* Certifications */}
           {certifications?.length > 0 && (
-            <SideSection title="Certifications">
+            <section>
+              <CreativeSideTitle>Certifications</CreativeSideTitle>
               {certifications.map((c, i) => (
-                <p key={i} className="text-xs text-gray-700 mb-1">• {c}</p>
+                <p key={i} style={{ fontSize: 10.5, color: '#4B5563', marginBottom: 4, display: 'flex', gap: 5 }}>
+                  <span style={{ color: TEAL, fontWeight: 700 }}>✓</span>
+                  <span>{c}</span>
+                </p>
               ))}
-            </SideSection>
+            </section>
           )}
 
+          {/* Languages */}
           {languages?.length > 0 && (
-            <SideSection title="Languages">
-              {languages.map((l, i) => (
-                <p key={i} className="text-xs text-gray-700 mb-1">• {l}</p>
-              ))}
-            </SideSection>
+            <section>
+              <CreativeSideTitle>Languages</CreativeSideTitle>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4 }}>
+                {languages.map((l, i) => (
+                  <span
+                    key={i}
+                    style={{
+                      fontSize: 10,
+                      fontWeight: 600,
+                      padding: '2px 8px',
+                      borderRadius: 99,
+                      background: '#EEF2FF',
+                      color: INDIGO,
+                      border: `1px solid ${INDIGO}25`,
+                    }}
+                  >
+                    {l}
+                  </span>
+                ))}
+              </div>
+            </section>
           )}
         </div>
       </div>
@@ -156,31 +366,35 @@ export default function CreativeTemplate({ data }) {
   );
 }
 
-function Section({ title, color, children }) {
+function CreativeSectionTitle({ children, color }) {
   return (
-    <section className="mb-1">
-      <div className="flex items-center gap-2 mb-2">
-        <div className="w-3 h-3 rounded-sm" style={{ background: color }} />
-        <h2 className="text-xs font-black uppercase tracking-widest" style={{ color }}>{title}</h2>
+    <div style={{ marginBottom: 10 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 5 }}>
+        <div style={{ width: 10, height: 10, borderRadius: 3, background: color, flexShrink: 0 }} />
+        <h2 style={{ fontSize: 10, fontWeight: 900, textTransform: 'uppercase', letterSpacing: '1.5px', color }}>
+          {children}
+        </h2>
       </div>
-      {children}
-    </section>
+      <div style={{ height: 1, background: `linear-gradient(90deg, ${color}50 0%, transparent 100%)` }} />
+    </div>
   );
 }
 
-function SideSection({ title, children }) {
+function CreativeSideTitle({ children }) {
   return (
-    <section>
-      <h2 className="text-[10px] font-black uppercase tracking-widest text-gray-400 border-b border-gray-200 pb-1 mb-2">{title}</h2>
+    <h2
+      style={{
+        fontSize: 9,
+        fontWeight: 800,
+        textTransform: 'uppercase',
+        letterSpacing: '1.5px',
+        color: '#9CA3AF',
+        borderBottom: '1px solid #E5E7EB',
+        paddingBottom: 4,
+        marginBottom: 8,
+      }}
+    >
       {children}
-    </section>
-  );
-}
-
-function ContactItem({ icon, children }) {
-  return (
-    <span className="flex items-center gap-1">
-      <span>{icon}</span> {children}
-    </span>
+    </h2>
   );
 }
