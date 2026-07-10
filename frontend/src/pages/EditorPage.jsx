@@ -26,10 +26,10 @@ const TABS = [
 ];
 
 const TEMPLATE_OPTIONS = [
-  { id: 'modern',     label: 'Modern',     color: '#6366f1' },
-  { id: 'classic',    label: 'Classic',    color: '#10b981' },
-  { id: 'minimalist', label: 'Minimalist', color: '#f59e0b' },
-  { id: 'creative',   label: 'Creative',   color: '#a78bfa' },
+  { id: 'modern',     label: 'Modern',     color: '#D391B0' },
+  { id: 'classic',    label: 'Classic',    color: '#9F6496' },
+  { id: 'minimalist', label: 'Minimalist', color: '#BA6E8F' },
+  { id: 'creative',   label: 'Creative',   color: '#7B466A' },
 ];
 
 export default function EditorPage() {
@@ -162,28 +162,28 @@ export default function EditorPage() {
   };
 
   if (loading) return (
-    <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#0b0d1a' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#0C0420' }}>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12 }}>
         <div className="spinner" style={{ width: 36, height: 36 }} />
-        <p style={{ color: 'rgba(241,245,249,0.4)', fontSize: 14 }}>Loading resume…</p>
+        <p style={{ color: 'rgba(243,234,245,0.45)', fontSize: 14 }}>Loading resume…</p>
       </div>
     </div>
   );
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: '#0b0d1a', paddingTop: 64 }}>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: '#0C0420', paddingTop: 64 }}>
 
       {/* ── Toolbar ─────────────────────────────────────────────────────── */}
-      <div style={{ background: 'rgba(11,13,26,0.95)', borderBottom: '1px solid rgba(255,255,255,0.07)', padding: '10px 16px', display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', backdropFilter: 'blur(12px)', position: 'sticky', top: 64, zIndex: 40 }}>
+      <div style={{ background: 'rgba(12,4,32,0.97)', borderBottom: '1px solid rgba(211,145,176,0.12)', padding: '10px 16px', display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', backdropFilter: 'blur(12px)', position: 'sticky', top: 64, zIndex: 40 }}>
 
         {/* Back */}
         <button onClick={() => navigate('/dashboard')}
-          style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 13, color: 'rgba(241,245,249,0.45)', background: 'none', border: 'none', cursor: 'pointer', padding: '5px 8px', borderRadius: 8, transition: 'color 0.2s' }}
-          onMouseEnter={e => e.currentTarget.style.color = '#f1f5f9'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(241,245,249,0.45)'}>
+          style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 13, color: 'rgba(243,234,245,0.45)', background: 'none', border: 'none', cursor: 'pointer', padding: '5px 8px', borderRadius: 8, transition: 'color 0.2s' }}
+          onMouseEnter={e => e.currentTarget.style.color = '#F3EAF5'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(243,234,245,0.45)'}>
           <ChevronLeft size={15} /> Dashboard
         </button>
 
-        <div style={{ height: 18, width: 1, background: 'rgba(255,255,255,0.1)' }} />
+        <div style={{ height: 18, width: 1, background: 'rgba(211,145,176,0.15)' }} />
 
         {/* Title */}
         <input value={resumeTitle} onChange={e => setResumeTitle(e.target.value)} className="input-field"
@@ -204,28 +204,28 @@ export default function EditorPage() {
           ))}
         </div>
 
-        <div style={{ height: 18, width: 1, background: 'rgba(255,255,255,0.1)' }} />
+        <div style={{ height: 18, width: 1, background: 'rgba(211,145,176,0.15)' }} />
 
         {/* Action buttons */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
           <button onClick={() => setShowGenModal(true)}
-            style={{ display: 'flex', alignItems: 'center', gap: 5, padding: '6px 12px', borderRadius: 9, fontSize: 12, fontWeight: 600, background: 'rgba(139,92,246,0.12)', border: '1px solid rgba(139,92,246,0.3)', color: '#c084fc', cursor: 'pointer' }}>
+            style={{ display: 'flex', alignItems: 'center', gap: 5, padding: '6px 12px', borderRadius: 9, fontSize: 12, fontWeight: 600, background: 'rgba(211,145,176,0.12)', border: '1px solid rgba(211,145,176,0.3)', color: '#D391B0', cursor: 'pointer' }}>
             <Wand2 size={13} /> AI Generate
           </button>
 
           <button onClick={() => setShowAts(v => !v)}
-            style={{ display: 'flex', alignItems: 'center', gap: 5, padding: '6px 12px', borderRadius: 9, fontSize: 12, fontWeight: 600, background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.25)', color: '#34d399', cursor: 'pointer' }}>
+            style={{ display: 'flex', alignItems: 'center', gap: 5, padding: '6px 12px', borderRadius: 9, fontSize: 12, fontWeight: 600, background: 'rgba(159,100,150,0.12)', border: '1px solid rgba(159,100,150,0.3)', color: '#9F6496', cursor: 'pointer' }}>
             <BarChart2 size={13} /> ATS Score
           </button>
 
           <button onClick={() => setShowPreview(v => !v)}
-            style={{ display: 'flex', alignItems: 'center', gap: 5, padding: '6px 12px', borderRadius: 9, fontSize: 12, fontWeight: 500, background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(241,245,249,0.6)', cursor: 'pointer' }}>
+            style={{ display: 'flex', alignItems: 'center', gap: 5, padding: '6px 12px', borderRadius: 9, fontSize: 12, fontWeight: 500, background: 'rgba(211,145,176,0.06)', border: '1px solid rgba(211,145,176,0.15)', color: 'rgba(243,234,245,0.65)', cursor: 'pointer' }}>
             {showPreview ? <EyeOff size={13} /> : <Eye size={13} />}
             {showPreview ? 'Hide' : 'Show'}
           </button>
 
           <button onClick={handleDownloadPDF}
-            style={{ display: 'flex', alignItems: 'center', gap: 5, padding: '6px 12px', borderRadius: 9, fontSize: 12, fontWeight: 500, background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(241,245,249,0.7)', cursor: 'pointer' }}>
+            style={{ display: 'flex', alignItems: 'center', gap: 5, padding: '6px 12px', borderRadius: 9, fontSize: 12, fontWeight: 500, background: 'rgba(211,145,176,0.06)', border: '1px solid rgba(211,145,176,0.15)', color: 'rgba(243,234,245,0.75)', cursor: 'pointer' }}>
             <Download size={13} /> PDF
           </button>
 
@@ -238,10 +238,10 @@ export default function EditorPage() {
 
       {/* ── ATS Panel ────────────────────────────────────────────────────── */}
       {showAts && (
-        <div className="animate-fade-in" style={{ background: 'rgba(11,13,26,0.9)', borderBottom: '1px solid rgba(255,255,255,0.07)', padding: '16px 20px' }}>
+        <div style={{ background: 'rgba(12,4,32,0.92)', borderBottom: '1px solid rgba(211,145,176,0.1)', padding: '16px 20px' }}>
           <div style={{ maxWidth: 1100, margin: '0 auto', display: 'flex', gap: 14, flexWrap: 'wrap', alignItems: 'flex-end' }}>
             <div style={{ flex: 1, minWidth: 220 }}>
-              <label style={{ display: 'block', fontSize: 11, color: 'rgba(241,245,249,0.4)', marginBottom: 6 }}>Job Description (optional)</label>
+              <label style={{ display: 'block', fontSize: 11, color: 'rgba(243,234,245,0.45)', marginBottom: 6 }}>Job Description (optional)</label>
               <textarea rows={2} className="input-field" placeholder="Paste job description to match keywords…" value={jobDesc} onChange={e => setJobDesc(e.target.value)}
                 style={{ width: '100%', padding: '9px 12px', borderRadius: 10, fontSize: 12, resize: 'none' }} />
             </div>
@@ -254,10 +254,10 @@ export default function EditorPage() {
             <div style={{ maxWidth: 1100, margin: '14px auto 0', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: 12 }}>
               <AtsCard label="ATS Score" value={`${atsData.atsScore}%`} color={atsData.atsScore >= 70 ? '#4ade80' : atsData.atsScore >= 50 ? '#fbbf24' : '#f87171'} />
               <AtsCard label="Keyword Match" value={`${atsData.keywordMatchPercentage ?? 0}%`} color="#818cf8" />
-              <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 12, padding: '12px 14px', gridColumn: 'span 2' }}>
-                <p style={{ fontSize: 11, color: 'rgba(241,245,249,0.4)', marginBottom: 8 }}>Improvements</p>
+              <div style={{ background: 'rgba(211,145,176,0.06)', border: '1px solid rgba(211,145,176,0.12)', borderRadius: 12, padding: '12px 14px', gridColumn: 'span 2' }}>
+                <p style={{ fontSize: 11, color: 'rgba(243,234,245,0.45)', marginBottom: 8 }}>Improvements</p>
                 {(atsData.improvements || []).slice(0, 3).map((imp, i) => (
-                  <p key={i} style={{ fontSize: 12, color: 'rgba(241,245,249,0.65)', marginBottom: 4 }}>→ {imp}</p>
+                  <p key={i} style={{ fontSize: 12, color: 'rgba(243,234,245,0.7)', marginBottom: 4 }}>→ {imp}</p>
                 ))}
               </div>
             </div>
@@ -269,18 +269,18 @@ export default function EditorPage() {
       <div style={{ flex: 1, display: 'flex', overflow: 'hidden', minHeight: 0 }}>
 
         {/* Form Panel */}
-        <div style={{ width: showPreview ? 450 : '100%', flexShrink: 0, display: 'flex', flexDirection: 'column', borderRight: '1px solid rgba(255,255,255,0.06)', overflowY: 'auto', minWidth: showPreview ? 360 : 'auto', background: '#0e101f' }}>
+        <div style={{ width: showPreview ? 450 : '100%', flexShrink: 0, display: 'flex', flexDirection: 'column', borderRight: '1px solid rgba(211,145,176,0.1)', overflowY: 'auto', minWidth: showPreview ? 360 : 'auto', background: '#120520' }}>
 
           {/* Tabs */}
-          <div style={{ display: 'flex', padding: '12px 12px 0', gap: 4, borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(11,13,26,0.6)', overflowX: 'auto', flexShrink: 0 }}>
+          <div style={{ display: 'flex', padding: '12px 12px 0', gap: 4, borderBottom: '1px solid rgba(211,145,176,0.1)', background: 'rgba(12,4,32,0.7)', overflowX: 'auto', flexShrink: 0 }}>
             {TABS.map(({ id: tid, label, icon: Icon }) => (
               <button key={tid} onClick={() => setActiveTab(tid)}
                 style={{
                   display: 'flex', alignItems: 'center', gap: 6, padding: '10px 14px', borderRadius: '10px 10px 0 0',
                   fontSize: 12, fontWeight: 600, cursor: 'pointer', whiteSpace: 'nowrap',
-                  background: activeTab === tid ? 'rgba(99,102,241,0.12)' : 'transparent',
-                  color: activeTab === tid ? '#818cf8' : 'rgba(241,245,249,0.4)',
-                  borderBottom: activeTab === tid ? '2px solid #6366f1' : '2px solid transparent',
+                  background: activeTab === tid ? 'rgba(211,145,176,0.12)' : 'transparent',
+                  color: activeTab === tid ? '#D391B0' : 'rgba(243,234,245,0.45)',
+                  borderBottom: activeTab === tid ? '2px solid #D391B0' : '2px solid transparent',
                   border: 'none', outline: 'none', transition: 'all 0.2s',
                 }}>
                 <Icon size={14} /> {label}
@@ -294,7 +294,7 @@ export default function EditorPage() {
               {activeTab === 'personal' && (
                 <>
                   <PersonalInfoForm />
-                  <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(99,102,241,0.35), transparent)', margin: '24px 0' }} />
+                  <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(211,145,176,0.35), transparent)', margin: '24px 0' }} />
                   <div className="space-y-6">
                     <div className="flex items-center justify-between pb-3 border-b border-white/[0.05]">
                       <div className="flex items-center gap-2.5">
@@ -339,7 +339,7 @@ export default function EditorPage() {
 
         {/* Preview Panel */}
         {showPreview && (
-          <div id="editor-preview" style={{ flex: 1, overflow: 'auto', background: '#080a14', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '24px 20px', minWidth: 0 }}>
+          <div id="editor-preview" style={{ flex: 1, overflow: 'auto', background: '#0a0218', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '24px 20px', minWidth: 0 }}>
             <div style={{ width: '100%', maxWidth: 680 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
                 <p style={{ fontSize: 11, color: 'rgba(241,245,249,0.25)', letterSpacing: '0.5px' }}>LIVE PREVIEW</p>
@@ -362,25 +362,25 @@ export default function EditorPage() {
       {/* ── AI Generate Modal ────────────────────────────────────────────── */}
       {showGenModal && (
         <div className="animate-fade-in" style={{ position: 'fixed', inset: 0, zIndex: 300, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20, background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(8px)' }}>
-          <div className="animate-fade-in-up" style={{ background: '#0f1123', border: '1px solid rgba(99,102,241,0.25)', borderRadius: 24, padding: 32, width: '100%', maxWidth: 520, boxShadow: '0 32px 100px rgba(0,0,0,0.6)' }}>
+          <div className="animate-fade-in-up" style={{ background: '#180828', border: '1px solid rgba(211,145,176,0.25)', borderRadius: 24, padding: 32, width: '100%', maxWidth: 520, boxShadow: '0 32px 100px rgba(0,0,0,0.7)' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                 <div className="btn-primary" style={{ width: 36, height: 36, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <Wand2 size={16} color="#fff" />
                 </div>
-                <h2 style={{ fontSize: 17, fontWeight: 800, color: '#f1f5f9' }}>AI Resume Generator</h2>
+                <h2 style={{ fontSize: 17, fontWeight: 800, color: '#F3EAF5' }}>AI Resume Generator</h2>
               </div>
-              <button onClick={() => setShowGenModal(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(241,245,249,0.35)', padding: 4, transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#f1f5f9'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(241,245,249,0.35)'}>
+              <button onClick={() => setShowGenModal(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(243,234,245,0.35)', padding: 4, transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#F3EAF5'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(243,234,245,0.35)'}>
                 <X size={18} />
               </button>
             </div>
 
-            <p style={{ fontSize: 13, color: 'rgba(241,245,249,0.45)', marginBottom: 18, lineHeight: 1.6 }}>
+            <p style={{ fontSize: 13, color: 'rgba(243,234,245,0.5)', marginBottom: 18, lineHeight: 1.6 }}>
               Paste a job description and Gemini AI will generate a complete, tailored resume for you.
             </p>
 
             <div style={{ marginBottom: 20 }}>
-              <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: 'rgba(241,245,249,0.5)', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.3px' }}>Job Description *</label>
+              <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: 'rgba(243,234,245,0.55)', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.3px' }}>Job Description *</label>
               <textarea rows={6} className="input-field"
                 placeholder="We are looking for a Senior Software Engineer with 5+ years of experience in React, Node.js, and AWS…"
                 value={genJobDesc} onChange={e => setGenJobDesc(e.target.value)}
@@ -389,7 +389,7 @@ export default function EditorPage() {
 
             <div style={{ display: 'flex', gap: 10 }}>
               <button onClick={() => setShowGenModal(false)}
-                style={{ flex: 1, padding: '11px', borderRadius: 12, fontSize: 14, fontWeight: 500, background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(241,245,249,0.6)', cursor: 'pointer' }}>
+                style={{ flex: 1, padding: '11px', borderRadius: 12, fontSize: 14, fontWeight: 500, background: 'rgba(211,145,176,0.07)', border: '1px solid rgba(211,145,176,0.2)', color: 'rgba(243,234,245,0.65)', cursor: 'pointer' }}>
                 Cancel
               </button>
               <button onClick={handleAIGenerate} disabled={generating || !genJobDesc.trim()} className="btn-primary"
@@ -416,8 +416,8 @@ export default function EditorPage() {
 
 function AtsCard({ label, value, color }) {
   return (
-    <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 12, padding: '12px 14px', textAlign: 'center' }}>
-      <p style={{ fontSize: 11, color: 'rgba(241,245,249,0.35)', marginBottom: 4 }}>{label}</p>
+    <div style={{ background: 'rgba(211,145,176,0.06)', border: '1px solid rgba(211,145,176,0.15)', borderRadius: 12, padding: '12px 14px', textAlign: 'center' }}>
+      <p style={{ fontSize: 11, color: 'rgba(243,234,245,0.4)', marginBottom: 4 }}>{label}</p>
       <p style={{ fontSize: 26, fontWeight: 900, color }}>{value}</p>
     </div>
   );

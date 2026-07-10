@@ -5,10 +5,10 @@ import { resumeService } from '../services/resumeService';
 import toast from 'react-hot-toast';
 
 const TEMPLATES = [
-  { id: 'modern',     name: 'Modern',     desc: 'Two-column with a sleek sidebar. Great for tech roles.',                 accent: '#6366f1', bg: '#1e1b4b', tags: ['Popular', 'Tech']     },
-  { id: 'classic',    name: 'Classic',    desc: 'Traditional single-column. Timeless and universally accepted.',           accent: '#10b981', bg: '#064e3b', tags: ['Corporate', 'Safe']   },
-  { id: 'minimalist', name: 'Minimalist', desc: 'Ultra-clean with generous whitespace. Lets your content shine.',          accent: '#f59e0b', bg: '#451a03', tags: ['Clean', 'Modern']     },
-  { id: 'creative',   name: 'Creative',   desc: 'Bold color blocks and standout design. Perfect for creative roles.',      accent: '#a78bfa', bg: '#2e1065', tags: ['Design', 'Standout']  },
+  { id: 'modern',     name: 'Modern',     desc: 'Two-column with a sleek sidebar. Great for tech roles.',                 accent: '#D391B0', bg: '#3a1040', tags: ['Popular', 'Tech']     },
+  { id: 'classic',    name: 'Classic',    desc: 'Traditional single-column. Timeless and universally accepted.',           accent: '#9F6496', bg: '#2a0a32', tags: ['Corporate', 'Safe']   },
+  { id: 'minimalist', name: 'Minimalist', desc: 'Ultra-clean with generous whitespace. Lets your content shine.',          accent: '#BA6E8F', bg: '#1a0424', tags: ['Clean', 'Modern']     },
+  { id: 'creative',   name: 'Creative',   desc: 'Bold color blocks and standout design. Perfect for creative roles.',      accent: '#7B466A', bg: '#0C0420', tags: ['Design', 'Standout']  },
 ];
 
 export default function TemplatesPage() {
@@ -35,20 +35,20 @@ export default function TemplatesPage() {
   const selectedTemplate = TEMPLATES.find(t => t.id === selected);
 
   return (
-    <div style={{ minHeight: '100vh', paddingTop: 88, paddingBottom: 80, background: '#0b0d1a', position: 'relative', overflow: 'hidden' }}>
+    <div style={{ minHeight: '100vh', paddingTop: 88, paddingBottom: 80, background: '#0C0420', position: 'relative', overflow: 'hidden' }}>
       {/* Background glow */}
-      <div style={{ position: 'fixed', top: '20%', right: '-5%', width: 400, height: 400, background: 'radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 65%)', pointerEvents: 'none' }} />
+      <div style={{ position: 'fixed', top: '20%', right: '-5%', width: 400, height: 400, background: 'radial-gradient(circle, rgba(211,145,176,0.1) 0%, transparent 65%)', pointerEvents: 'none' }} />
 
       <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 24px' }}>
         {/* Header */}
         <div className="animate-fade-in-up" style={{ textAlign: 'center', marginBottom: 52 }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 7, padding: '7px 16px', background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.25)', borderRadius: 99, fontSize: 12, color: 'rgba(241,245,249,0.65)', fontWeight: 500, marginBottom: 20 }}>
-            <Sparkles size={12} color="#818cf8" /> 4 Professional Templates
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 7, padding: '7px 16px', background: 'rgba(211,145,176,0.1)', border: '1px solid rgba(211,145,176,0.25)', borderRadius: 99, fontSize: 12, color: 'rgba(243,234,245,0.7)', fontWeight: 500, marginBottom: 20 }}>
+            <Sparkles size={12} color="#D391B0" /> 4 Professional Templates
           </div>
-          <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', fontWeight: 900, color: '#f1f5f9', letterSpacing: '-1px', lineHeight: 1.1, marginBottom: 12 }}>
+          <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', fontWeight: 900, color: '#F3EAF5', letterSpacing: '-1px', lineHeight: 1.1, marginBottom: 12 }}>
             Choose Your <span className="gradient-text">Template</span>
           </h1>
-          <p style={{ color: 'rgba(241,245,249,0.4)', fontSize: 15, maxWidth: 440, margin: '0 auto' }}>
+          <p style={{ color: 'rgba(243,234,245,0.45)', fontSize: 15, maxWidth: 440, margin: '0 auto' }}>
             Every template is ATS-optimized. Switch between them anytime in the editor.
           </p>
         </div>
@@ -63,10 +63,10 @@ export default function TemplatesPage() {
                 className={`animate-fade-in-up delay-${(i + 1) * 100}`}
                 style={{
                   textAlign: 'left', border: 'none', cursor: 'pointer', padding: 0,
-                  background: 'rgba(15,17,35,0.6)',
+                   background: 'rgba(12,4,32,0.7)',
                   outline: isSelected ? `2px solid ${t.accent}` : '2px solid transparent',
                   borderRadius: 20, overflow: 'hidden',
-                  boxShadow: isSelected ? `0 0 0 4px ${t.accent}22, 0 20px 60px ${t.accent}30` : '0 2px 12px rgba(0,0,0,0.25)',
+                  boxShadow: isSelected ? `0 0 0 4px ${t.accent}22, 0 20px 60px ${t.accent}30` : '0 2px 12px rgba(0,0,0,0.3)',
                   transform: isSelected ? 'scale(1.02)' : 'scale(1)',
                   transition: 'all 0.3s ease',
                 }}>
@@ -95,9 +95,9 @@ export default function TemplatesPage() {
                 <div style={{ padding: '18px 20px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
                     <span style={{ width: 9, height: 9, borderRadius: '50%', background: t.accent, display: 'inline-block', flexShrink: 0 }} />
-                    <span style={{ fontWeight: 800, color: '#f1f5f9', fontSize: 15 }}>{t.name}</span>
+                    <span style={{ fontWeight: 800, color: '#F3EAF5', fontSize: 15 }}>{t.name}</span>
                   </div>
-                  <p style={{ color: 'rgba(241,245,249,0.4)', fontSize: 12, lineHeight: 1.55, marginBottom: 10 }}>{t.desc}</p>
+                  <p style={{ color: 'rgba(243,234,245,0.45)', fontSize: 12, lineHeight: 1.55, marginBottom: 10 }}>{t.desc}</p>
                   <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
                     {t.tags.map(tag => (
                       <span key={tag} style={{ fontSize: 10, fontWeight: 600, padding: '3px 9px', borderRadius: 99, background: `${t.accent}20`, color: t.accent }}>
@@ -120,7 +120,7 @@ export default function TemplatesPage() {
               : <><Sparkles size={18} /> Use {selectedTemplate?.name} Template <ArrowRight size={16} /></>
             }
           </button>
-          <p style={{ color: 'rgba(241,245,249,0.25)', fontSize: 12, marginTop: 10 }}>
+          <p style={{ color: 'rgba(243,234,245,0.3)', fontSize: 12, marginTop: 10 }}>
             You can switch templates anytime in the editor
           </p>
         </div>

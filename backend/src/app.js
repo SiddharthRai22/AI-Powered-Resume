@@ -2,17 +2,18 @@
  * Express App — configures middleware, routes, and error handling.
  */
 
+// Load environment variables FIRST before any other imports
+// so that services like aiService.js can read process.env on initialisation
+const dotenv = require('dotenv');
+dotenv.config();
+
 const express = require('express');
 const cors = require('cors');
-const dotenv = require('dotenv');
 
 const authRoutes = require('./routes/authRoutes');
 const resumeRoutes = require('./routes/resumeRoutes');
 const aiRoutes = require('./routes/aiRoutes');
 const errorHandler = require('./middleware/errorHandler');
-
-// Load environment variables
-dotenv.config();
 
 const app = express();
 

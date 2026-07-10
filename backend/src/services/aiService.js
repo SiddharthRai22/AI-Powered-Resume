@@ -167,7 +167,7 @@ Return a JSON object with this exact structure:
   "languages": ["English (Native)", "Spanish (Conversational)"]
 }`;
 
-  return await callGroq(prompt);
+  return await callGemini(prompt);
 }
 
 // ─── ATS Score Check ──────────────────────────────────────────────────────────
@@ -205,7 +205,7 @@ Return a JSON object with this exact structure:
   }
 }`;
 
-  return await callGroq(prompt);
+  return await callGemini(prompt);
 }
 
 module.exports = { improveContent, generateResume, checkATS };

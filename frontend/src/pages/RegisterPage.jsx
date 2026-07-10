@@ -31,7 +31,7 @@ export default function RegisterPage() {
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 20px 40px', position: 'relative', overflow: 'hidden' }}>
-      <div style={{ position: 'absolute', top: '30%', left: '50%', transform: 'translate(-50%,-50%)', width: 600, height: 600, background: 'radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 65%)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', top: '30%', left: '50%', transform: 'translate(-50%,-50%)', width: 600, height: 600, background: 'radial-gradient(circle, rgba(211,145,176,0.14) 0%, transparent 65%)', pointerEvents: 'none' }} />
 
       <div className="animate-fade-in-up" style={{ width: '100%', maxWidth: 420, position: 'relative' }}>
 
@@ -46,11 +46,11 @@ export default function RegisterPage() {
               <span style={{ color: '#f1f5f9' }}>AI</span>
             </span>
           </div>
-          <h1 style={{ fontSize: 26, fontWeight: 900, color: '#f1f5f9', letterSpacing: '-0.5px' }}>Create your account</h1>
+          <h1 style={{ fontSize: 26, fontWeight: 900, color: '#F3EAF5', letterSpacing: '-0.5px' }}>Create your account</h1>
         </div>
 
         {/* Card */}
-        <div style={{ background: 'rgba(15,17,35,0.7)', border: '1px solid rgba(139,92,246,0.2)', borderRadius: 22, padding: '36px 32px', backdropFilter: 'blur(24px)', boxShadow: '0 24px 80px rgba(0,0,0,0.4)' }}>
+        <div style={{ background: 'rgba(12,4,32,0.75)', border: '1px solid rgba(211,145,176,0.22)', borderRadius: 22, padding: '36px 32px', backdropFilter: 'blur(24px)', boxShadow: '0 24px 80px rgba(0,0,0,0.5)' }}>
           <form onSubmit={handleSubmit}>
 
             {[
@@ -58,7 +58,7 @@ export default function RegisterPage() {
               { name: 'email', label: 'Email', type: 'email', placeholder: 'you@example.com', icon: Mail, auto: 'email' },
             ].map(({ name, label, type, placeholder, icon: Icon, auto }) => (
               <div key={name} style={{ marginBottom: 16 }}>
-                <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: 'rgba(241,245,249,0.55)', marginBottom: 7, letterSpacing: '0.3px', textTransform: 'uppercase' }}>{label}</label>
+                <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: 'rgba(243,234,245,0.6)', marginBottom: 7, letterSpacing: '0.3px', textTransform: 'uppercase' }}>{label}</label>
                 <div style={{ position: 'relative' }}>
                   <Icon size={15} color="rgba(241,245,249,0.3)" style={{ position: 'absolute', left: 13, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
                   <input
@@ -73,7 +73,7 @@ export default function RegisterPage() {
 
             {/* Password */}
             <div style={{ marginBottom: 24 }}>
-              <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: 'rgba(241,245,249,0.55)', marginBottom: 7, letterSpacing: '0.3px', textTransform: 'uppercase' }}>Password</label>
+              <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: 'rgba(243,234,245,0.6)', marginBottom: 7, letterSpacing: '0.3px', textTransform: 'uppercase' }}>Password</label>
               <div style={{ position: 'relative' }}>
                 <Lock size={15} color="rgba(241,245,249,0.3)" style={{ position: 'absolute', left: 13, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
                 <input
@@ -98,9 +98,9 @@ export default function RegisterPage() {
             </button>
           </form>
 
-          <p style={{ textAlign: 'center', fontSize: 13, color: 'rgba(241,245,249,0.35)', marginTop: 22 }}>
+          <p style={{ textAlign: 'center', fontSize: 13, color: 'rgba(243,234,245,0.4)', marginTop: 22 }}>
             Already have an account?{' '}
-            <Link to="/login" style={{ color: '#818cf8', fontWeight: 600, textDecoration: 'none' }}>Sign in</Link>
+            <Link to="/login" style={{ color: '#D391B0', fontWeight: 600, textDecoration: 'none' }}>Sign in</Link>
           </p>
         </div>
       </div>

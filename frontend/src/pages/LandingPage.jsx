@@ -3,10 +3,10 @@ import { Sparkles, ArrowRight, Zap, Shield, Download, Star, FileText, TrendingUp
 import { useAuth } from '../context/AuthContext';
 
 const TEMPLATES = [
-  { id: 'modern',     name: 'Modern',     desc: 'Two-column with accent sidebar',     accent: '#6366f1', bg: '#1e1b4b' },
-  { id: 'classic',    name: 'Classic',    desc: 'Traditional professional layout',    accent: '#10b981', bg: '#064e3b' },
-  { id: 'minimalist', name: 'Minimalist', desc: 'Ultra-clean, whitespace-focused',    accent: '#f59e0b', bg: '#451a03' },
-  { id: 'creative',   name: 'Creative',   desc: 'Bold color blocks, standout design', accent: '#a78bfa', bg: '#2e1065' },
+  { id: 'modern',     name: 'Modern',     desc: 'Two-column with accent sidebar',     accent: '#D391B0', bg: '#3a1040' },
+  { id: 'classic',    name: 'Classic',    desc: 'Traditional professional layout',    accent: '#9F6496', bg: '#2a0a32' },
+  { id: 'minimalist', name: 'Minimalist', desc: 'Ultra-clean, whitespace-focused',    accent: '#BA6E8F', bg: '#1a0424' },
+  { id: 'creative',   name: 'Creative',   desc: 'Bold color blocks, standout design', accent: '#7B466A', bg: '#0C0420' },
 ];
 
 const FEATURES = [
@@ -29,31 +29,31 @@ export default function LandingPage() {
   const { user } = useAuth();
 
   return (
-    <div style={{ minHeight: '100vh', background: '#0b0d1a' }}>
+    <div style={{ minHeight: '100vh', background: '#0C0420' }}>
 
       {/* ── Hero ──────────────────────────────────────────────────────── */}
       <section style={{ position: 'relative', paddingTop: 120, paddingBottom: 80, textAlign: 'center', overflow: 'hidden' }}>
         {/* Orb backgrounds */}
-        <div style={{ position: 'absolute', top: 60, left: '50%', transform: 'translateX(-50%)', width: 700, height: 700, background: 'radial-gradient(circle, rgba(99,102,241,0.18) 0%, transparent 65%)', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', top: 200, left: '10%', width: 300, height: 300, background: 'radial-gradient(circle, rgba(139,92,246,0.15) 0%, transparent 65%)', borderRadius: '50%', filter: 'blur(40px)', pointerEvents: 'none' }} className="animate-float" />
-        <div style={{ position: 'absolute', top: 280, right: '10%', width: 250, height: 250, background: 'radial-gradient(circle, rgba(6,182,212,0.12) 0%, transparent 65%)', borderRadius: '50%', filter: 'blur(40px)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', top: 60, left: '50%', transform: 'translateX(-50%)', width: 700, height: 700, background: 'radial-gradient(circle, rgba(211,145,176,0.18) 0%, transparent 65%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', top: 200, left: '10%', width: 300, height: 300, background: 'radial-gradient(circle, rgba(159,100,150,0.15) 0%, transparent 65%)', borderRadius: '50%', filter: 'blur(40px)', pointerEvents: 'none' }} className="animate-float" />
+        <div style={{ position: 'absolute', top: 280, right: '10%', width: 250, height: 250, background: 'radial-gradient(circle, rgba(186,110,143,0.12) 0%, transparent 65%)', borderRadius: '50%', filter: 'blur(40px)', pointerEvents: 'none' }} />
 
         <div style={{ position: 'relative', maxWidth: 860, margin: '0 auto', padding: '0 24px' }}>
           {/* Badge */}
-          <div className="animate-fade-in-up" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '8px 18px', background: 'rgba(99,102,241,0.12)', border: '1px solid rgba(99,102,241,0.3)', borderRadius: 99, fontSize: 12, color: 'rgba(255,255,255,0.75)', marginBottom: 28, fontWeight: 500 }}>
-            <Sparkles size={13} color="#818cf8" />
+          <div className="animate-fade-in-up" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '8px 18px', background: 'rgba(211,145,176,0.12)', border: '1px solid rgba(211,145,176,0.3)', borderRadius: 99, fontSize: 12, color: 'rgba(255,255,255,0.75)', marginBottom: 28, fontWeight: 500 }}>
+            <Sparkles size={13} color="#D391B0" />
             AI-Powered Resume Builder · Completely Free
             <span style={{ width: 7, height: 7, background: '#4ade80', borderRadius: '50%', display: 'inline-block' }} className="animate-float" />
           </div>
 
           {/* Headline */}
-          <h1 className="animate-fade-in-up delay-100" style={{ fontSize: 'clamp(38px, 6vw, 72px)', fontWeight: 900, lineHeight: 1.08, letterSpacing: '-1.5px', color: '#f1f5f9', marginBottom: 20 }}>
+          <h1 className="animate-fade-in-up delay-100" style={{ fontSize: 'clamp(38px, 6vw, 72px)', fontWeight: 900, lineHeight: 1.08, letterSpacing: '-1.5px', color: '#F3EAF5', marginBottom: 20 }}>
             Build Resumes That{' '}
             <span className="gradient-text">Actually Get</span>
             <br />Interviews
           </h1>
 
-          <p className="animate-fade-in-up delay-200" style={{ fontSize: 'clamp(15px, 2vw, 19px)', color: 'rgba(241,245,249,0.5)', maxWidth: 580, margin: '0 auto 36px', fontWeight: 300, lineHeight: 1.7 }}>
+          <p className="animate-fade-in-up delay-200" style={{ fontSize: 'clamp(15px, 2vw, 19px)', color: 'rgba(243,234,245,0.5)', maxWidth: 580, margin: '0 auto 36px', fontWeight: 300, lineHeight: 1.7 }}>
             Harness the power of Google Gemini AI to craft ATS-optimized, professionally designed resumes in minutes — not hours.
           </p>
 
@@ -72,8 +72,8 @@ export default function LandingPage() {
 
           {/* Stars */}
           <div className="animate-fade-in-up delay-400" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5, marginTop: 24 }}>
-            {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="#fbbf24" color="#fbbf24" />)}
-            <span style={{ color: 'rgba(241,245,249,0.35)', fontSize: 12, marginLeft: 5 }}>Loved by 10,000+ developers</span>
+            {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="#D391B0" color="#D391B0" />)}
+            <span style={{ color: 'rgba(243,234,245,0.35)', fontSize: 12, marginLeft: 5 }}>Loved by 10,000+ developers</span>
           </div>
         </div>
       </section>
@@ -84,7 +84,7 @@ export default function LandingPage() {
           {STATS.map(({ value, label }) => (
             <div key={label} className="glass card-hover" style={{ borderRadius: 18, padding: '22px 16px', textAlign: 'center' }}>
               <p className="gradient-text" style={{ fontSize: 34, fontWeight: 900, lineHeight: 1 }}>{value}</p>
-              <p style={{ color: 'rgba(241,245,249,0.4)', fontSize: 12, marginTop: 4, fontWeight: 500 }}>{label}</p>
+              <p style={{ color: 'rgba(243,234,245,0.45)', fontSize: 12, marginTop: 4, fontWeight: 500 }}>{label}</p>
             </div>
           ))}
         </div>
@@ -94,8 +94,8 @@ export default function LandingPage() {
       <section style={{ padding: '20px 24px 60px' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 44 }}>
-            <h2 style={{ fontSize: 'clamp(26px, 4vw, 40px)', fontWeight: 900, color: '#f1f5f9', letterSpacing: '-0.5px' }}>Professional Templates</h2>
-            <p style={{ color: 'rgba(241,245,249,0.4)', fontSize: 15, marginTop: 10, maxWidth: 480, margin: '10px auto 0' }}>
+            <h2 style={{ fontSize: 'clamp(26px, 4vw, 40px)', fontWeight: 900, color: '#F3EAF5', letterSpacing: '-0.5px' }}>Professional Templates</h2>
+            <p style={{ color: 'rgba(243,234,245,0.45)', fontSize: 15, marginTop: 10, maxWidth: 480, margin: '10px auto 0' }}>
               Every template is ATS-tested and recruiter-approved. Switch between them instantly.
             </p>
           </div>
@@ -130,9 +130,9 @@ export default function LandingPage() {
                 <div style={{ padding: '16px 18px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 5 }}>
                     <span style={{ width: 8, height: 8, borderRadius: '50%', background: t.accent, flexShrink: 0, display: 'inline-block' }} />
-                    <span style={{ fontWeight: 700, color: '#f1f5f9', fontSize: 14 }}>{t.name}</span>
+                    <span style={{ fontWeight: 700, color: '#F3EAF5', fontSize: 14 }}>{t.name}</span>
                   </div>
-                  <p style={{ color: 'rgba(241,245,249,0.4)', fontSize: 12, lineHeight: 1.5 }}>{t.desc}</p>
+                  <p style={{ color: 'rgba(243,234,245,0.45)', fontSize: 12, lineHeight: 1.5 }}>{t.desc}</p>
                 </div>
               </Link>
             ))}
@@ -144,8 +144,8 @@ export default function LandingPage() {
       <section style={{ padding: '20px 24px 60px' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 44 }}>
-            <h2 style={{ fontSize: 'clamp(26px, 4vw, 40px)', fontWeight: 900, color: '#f1f5f9', letterSpacing: '-0.5px' }}>Everything You Need</h2>
-            <p style={{ color: 'rgba(241,245,249,0.4)', fontSize: 15, marginTop: 10, maxWidth: 480, margin: '10px auto 0' }}>
+            <h2 style={{ fontSize: 'clamp(26px, 4vw, 40px)', fontWeight: 900, color: '#F3EAF5', letterSpacing: '-0.5px' }}>Everything You Need</h2>
+            <p style={{ color: 'rgba(243,234,245,0.45)', fontSize: 15, marginTop: 10, maxWidth: 480, margin: '10px auto 0' }}>
               A complete toolkit to build, optimize, and download your perfect resume.
             </p>
           </div>
@@ -156,8 +156,8 @@ export default function LandingPage() {
                 <div className="btn-primary" style={{ width: 44, height: 44, borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16 }}>
                   <Icon size={19} color="#fff" />
                 </div>
-                <h3 style={{ fontWeight: 700, color: '#f1f5f9', fontSize: 15, marginBottom: 8 }}>{title}</h3>
-                <p style={{ color: 'rgba(241,245,249,0.4)', fontSize: 13, lineHeight: 1.65 }}>{desc}</p>
+                <h3 style={{ fontWeight: 700, color: '#F3EAF5', fontSize: 15, marginBottom: 8 }}>{title}</h3>
+                <p style={{ color: 'rgba(243,234,245,0.45)', fontSize: 13, lineHeight: 1.65 }}>{desc}</p>
               </div>
             ))}
           </div>
@@ -167,18 +167,18 @@ export default function LandingPage() {
       {/* ── CTA Banner ────────────────────────────────────────────────── */}
       <section style={{ padding: '0 24px 80px' }}>
         <div style={{ maxWidth: 800, margin: '0 auto' }}>
-          <div className="glass" style={{ borderRadius: 28, padding: 'clamp(36px, 6vw, 64px)', textAlign: 'center', position: 'relative', overflow: 'hidden', border: '1px solid rgba(99,102,241,0.2)' }}>
-            <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 50% 0%, rgba(99,102,241,0.18) 0%, transparent 60%)', pointerEvents: 'none' }} />
+          <div className="glass" style={{ borderRadius: 28, padding: 'clamp(36px, 6vw, 64px)', textAlign: 'center', position: 'relative', overflow: 'hidden', border: '1px solid rgba(211,145,176,0.25)' }}>
+            <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 50% 0%, rgba(211,145,176,0.15) 0%, transparent 60%)', pointerEvents: 'none' }} />
             <div style={{ position: 'relative' }}>
-              <h2 style={{ fontSize: 'clamp(24px, 4vw, 38px)', fontWeight: 900, color: '#f1f5f9', letterSpacing: '-0.5px', lineHeight: 1.2, marginBottom: 14 }}>
+              <h2 style={{ fontSize: 'clamp(24px, 4vw, 38px)', fontWeight: 900, color: '#F3EAF5', letterSpacing: '-0.5px', lineHeight: 1.2, marginBottom: 14 }}>
                 Ready to Land Your <span className="gradient-text">Dream Job?</span>
               </h2>
-              <p style={{ color: 'rgba(241,245,249,0.45)', fontSize: 15, marginBottom: 28 }}>
+              <p style={{ color: 'rgba(243,234,245,0.5)', fontSize: 15, marginBottom: 28 }}>
                 Join thousands of professionals building standout resumes with AI.
               </p>
               <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', justifyContent: 'center', marginBottom: 18 }}>
                 {['No credit card', 'No limits', '100% free'].map(perk => (
-                  <span key={perk} style={{ display: 'inline-flex', alignItems: 'center', gap: 5, fontSize: 12, color: 'rgba(241,245,249,0.5)' }}>
+                  <span key={perk} style={{ display: 'inline-flex', alignItems: 'center', gap: 5, fontSize: 12, color: 'rgba(243,234,245,0.55)' }}>
                     <CheckCircle size={12} color="#4ade80" /> {perk}
                   </span>
                 ))}
@@ -194,16 +194,16 @@ export default function LandingPage() {
       </section>
 
       {/* ── Footer ────────────────────────────────────────────────────── */}
-      <footer style={{ borderTop: '1px solid rgba(255,255,255,0.05)', padding: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <footer style={{ borderTop: '1px solid rgba(211,145,176,0.12)', padding: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <div className="btn-primary" style={{ width: 26, height: 26, borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <Sparkles size={12} color="#fff" />
           </div>
           <span style={{ fontWeight: 700, fontSize: 13 }}>
             <span className="gradient-text">Resume</span>
-            <span style={{ color: '#f1f5f9' }}>AI</span>
+            <span style={{ color: '#F3EAF5' }}>AI</span>
           </span>
-          <span style={{ color: 'rgba(241,245,249,0.2)', fontSize: 12, marginLeft: 12 }}>© 2024 · Built for developers</span>
+          <span style={{ color: 'rgba(243,234,245,0.25)', fontSize: 12, marginLeft: 12 }}>© 2024 · Built for developers</span>
         </div>
       </footer>
     </div>

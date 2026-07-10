@@ -1,6 +1,6 @@
 # 🚀 AI Resume Builder — Full-Stack Premium SaaS
 
-A **premium AI-powered resume builder** built with React.js + Tailwind CSS (frontend) and Node.js + Express.js (backend). Uses **Google Gemini AI** to generate, improve, and ATS-optimize professional resumes in real time.
+A **premium AI-powered resume builder** built with React.js + Tailwind CSS (frontend) and Node.js + Express.js (backend). Uses **Groq AI (Llama 3.3)** to generate, improve, and ATS-optimize professional resumes in real time.
 
 > 🎯 **Portfolio-ready** — no payment features, clean code, modern SaaS design.
 

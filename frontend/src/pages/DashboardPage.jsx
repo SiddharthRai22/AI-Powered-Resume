@@ -6,10 +6,10 @@ import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
 
 const TEMPLATE_META = {
-  modern:     { color: '#6366f1', label: 'Modern'     },
-  classic:    { color: '#10b981', label: 'Classic'    },
-  minimalist: { color: '#f59e0b', label: 'Minimalist' },
-  creative:   { color: '#a78bfa', label: 'Creative'   },
+  modern:     { color: '#D391B0', label: 'Modern'     },
+  classic:    { color: '#9F6496', label: 'Classic'    },
+  minimalist: { color: '#BA6E8F', label: 'Minimalist' },
+  creative:   { color: '#7B466A', label: 'Creative'   },
 };
 
 function timeAgo(d) {
@@ -65,17 +65,17 @@ export default function DashboardPage() {
   const filtered = resumes.filter(r => r.title.toLowerCase().includes(search.toLowerCase()));
 
   return (
-    <div style={{ minHeight: '100vh', paddingTop: 88, paddingBottom: 60, background: '#0b0d1a' }}>
+    <div style={{ minHeight: '100vh', paddingTop: 88, paddingBottom: 60, background: '#0C0420' }}>
       <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 24px' }}>
 
         {/* Header */}
         <div className="animate-fade-in-up" style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 36 }}>
           <div>
-            <h1 style={{ fontSize: 'clamp(24px, 4vw, 34px)', fontWeight: 900, color: '#f1f5f9', letterSpacing: '-0.5px' }}>
+            <h1 style={{ fontSize: 'clamp(24px, 4vw, 34px)', fontWeight: 900, color: '#F3EAF5', letterSpacing: '-0.5px' }}>
               Good {getGreeting()},{' '}
               <span className="gradient-text">{user?.fullName?.split(' ')[0]}</span> 👋
             </h1>
-            <p style={{ color: 'rgba(241,245,249,0.35)', fontSize: 14, marginTop: 5 }}>
+            <p style={{ color: 'rgba(243,234,245,0.4)', fontSize: 14, marginTop: 5 }}>
               {resumes.length} resume{resumes.length !== 1 ? 's' : ''} in your workspace
             </p>
           </div>
@@ -109,8 +109,8 @@ export default function DashboardPage() {
             <div className="btn-primary animate-float" style={{ width: 80, height: 80, borderRadius: 22, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 24px' }}>
               <Sparkles size={34} color="#fff" />
             </div>
-            <h2 style={{ fontSize: 22, fontWeight: 800, color: '#f1f5f9', marginBottom: 10 }}>No resumes yet</h2>
-            <p style={{ color: 'rgba(241,245,249,0.35)', fontSize: 14, maxWidth: 300, margin: '0 auto 28px', lineHeight: 1.6 }}>
+            <h2 style={{ fontSize: 22, fontWeight: 800, color: '#F3EAF5', marginBottom: 10 }}>No resumes yet</h2>
+            <p style={{ color: 'rgba(243,234,245,0.4)', fontSize: 14, maxWidth: 300, margin: '0 auto 28px', lineHeight: 1.6 }}>
               Create your first AI-powered resume. Pick a template to get started.
             </p>
             <Link to="/templates" className="btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 26px', borderRadius: 12, fontSize: 15, textDecoration: 'none' }}>
@@ -128,10 +128,10 @@ export default function DashboardPage() {
                   onMouseEnter={() => setHoveredCard(resume.id)}
                   onMouseLeave={() => setHoveredCard(null)}
                   style={{
-                    background: 'rgba(15,17,35,0.6)', border: `1px solid ${isHovered ? 'rgba(99,102,241,0.35)' : 'rgba(255,255,255,0.07)'}`,
+                    background: 'rgba(12,4,32,0.7)', border: `1px solid ${isHovered ? 'rgba(211,145,176,0.35)' : 'rgba(211,145,176,0.14)'}`,
                     borderRadius: 18, overflow: 'hidden', transition: 'all 0.25s ease',
                     transform: isHovered ? 'translateY(-4px)' : 'none',
-                    boxShadow: isHovered ? '0 20px 60px rgba(99,102,241,0.18)' : '0 2px 12px rgba(0,0,0,0.2)',
+                    boxShadow: isHovered ? '0 20px 60px rgba(211,145,176,0.18)' : '0 2px 12px rgba(0,0,0,0.25)',
                   }}>
 
                   {/* Thumbnail */}
@@ -161,16 +161,16 @@ export default function DashboardPage() {
                   {/* Info */}
                   <div style={{ padding: '14px 16px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
-                      <h3 style={{ fontWeight: 600, color: '#f1f5f9', fontSize: 14, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', flex: 1 }}>{resume.title}</h3>
+                      <h3 style={{ fontWeight: 600, color: '#F3EAF5', fontSize: 14, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', flex: 1 }}>{resume.title}</h3>
                       <span style={{ fontSize: 10, fontWeight: 600, padding: '3px 8px', borderRadius: 99, background: `${tmpl.color}18`, color: tmpl.color, flexShrink: 0 }}>
                         {tmpl.label}
                       </span>
                     </div>
                     <div style={{ display: 'flex', gap: 14, marginTop: 8 }}>
-                      <span style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 11, color: 'rgba(241,245,249,0.3)' }}>
+                      <span style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 11, color: 'rgba(243,234,245,0.35)' }}>
                         <Clock size={10} /> {timeAgo(resume.updatedAt)}
                       </span>
-                      <span style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 11, color: 'rgba(241,245,249,0.3)' }}>
+                      <span style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 11, color: 'rgba(243,234,245,0.35)' }}>
                         <Calendar size={10} /> {new Date(resume.createdAt).toLocaleDateString()}
                       </span>
                     </div>
@@ -184,9 +184,9 @@ export default function DashboardPage() {
         {/* Delete Confirmation Modal */}
         {deleteTarget && (
           <div className="animate-fade-in" style={{ position: 'fixed', inset: 0, zIndex: 300, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20, background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(8px)' }}>
-            <div className="glass-card" style={{ width: '100%', maxWidth: 400, borderRadius: 20, padding: 24, boxShadow: '0 24px 80px rgba(0,0,0,0.5)', background: '#13152a' }}>
-              <h3 style={{ fontSize: 18, fontWeight: 700, color: '#f1f5f9', marginBottom: 10 }}>Do you want to delete this file?</h3>
-              <p style={{ fontSize: 13, color: 'rgba(241,245,249,0.45)', marginBottom: 24, lineHeight: 1.5 }}>
+            <div className="glass-card" style={{ width: '100%', maxWidth: 400, borderRadius: 20, padding: 24, boxShadow: '0 24px 80px rgba(0,0,0,0.5)', background: '#180828' }}>
+              <h3 style={{ fontSize: 18, fontWeight: 700, color: '#F3EAF5', marginBottom: 10 }}>Do you want to delete this file?</h3>
+              <p style={{ fontSize: 13, color: 'rgba(243,234,245,0.5)', marginBottom: 24, lineHeight: 1.5 }}>
                 Delete "{deleteTarget.title}"? This action cannot be undone and you will lose all progress on this resume.
               </p>
               <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 10 }}>

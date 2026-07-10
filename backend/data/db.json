@@ -48,6 +48,20 @@
       "fullName": "Verify User",
       "email": "verify_theme@test.com",
       "password": "$2a$12$xPbJDtFMmfRQ6yfiP8rsOe1X1KgboEdq5Bbv7BTx7PcoFeBb5i0Pu"
+    },
+    {
+      "id": "847d2063-4f94-45f3-91ab-8f88a420a6ed",
+      "createdAt": "2026-07-10T09:32:41.293Z",
+      "fullName": "ladu",
+      "email": "ladu125@gmail.com",
+      "password": "$2a$12$gVDxsILHZwuX9ON.9I8I6e.G7vXTwCR9pnb.mEzhWjHAoETcZrxfG"
+    },
+    {
+      "id": "8d6bff75-5f4a-4e33-856b-d828c8596bf9",
+      "createdAt": "2026-07-10T09:51:13.399Z",
+      "fullName": "Ladu",
+      "email": "ladu91@gmail.com",
+      "password": "$2a$12$5fgXPisU9eWQM/fDkRf6ReHeNOLNKKhVqiLPU.CN8zXaOfx10kI2S"
     }
   ],
   "resumes": [
@@ -299,7 +313,7 @@
     {
       "id": "d1bcb068-7737-4323-a073-1ee30f278a90",
       "createdAt": "2026-07-09T17:52:56.815Z",
-      "updatedAt": "2026-07-09T18:46:09.267Z",
+      "updatedAt": "2026-07-10T05:45:20.954Z",
       "userId": "20c82e12-2adb-49db-b79a-cc0363531d06",
       "title": "My Modern Resume",
       "templateId": "modern",
@@ -326,7 +340,13 @@
             ]
           }
         ],
-        "education": [],
+        "education": [
+          {
+            "institution": "",
+            "degree": "",
+            "year": ""
+          }
+        ],
         "skills": [],
         "projects": [
           {
@@ -359,6 +379,104 @@
           "portfolio": ""
         },
         "summary": "",
+        "experience": [
+          {
+            "company": "",
+            "role": "",
+            "duration": "",
+            "highlights": [
+              ""
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "",
+            "degree": "",
+            "year": ""
+          }
+        ],
+        "skills": [],
+        "projects": [
+          {
+            "name": "",
+            "description": "",
+            "link": ""
+          }
+        ],
+        "certifications": [],
+        "languages": []
+      }
+    },
+    {
+      "id": "a458a21f-7307-4d35-9e6d-3e722c392ed1",
+      "createdAt": "2026-07-10T09:32:48.508Z",
+      "updatedAt": "2026-07-10T10:07:25.653Z",
+      "userId": "847d2063-4f94-45f3-91ab-8f88a420a6ed",
+      "title": "My Modern Resume",
+      "templateId": "modern",
+      "content": {
+        "templateId": "modern",
+        "personalInfo": {
+          "fullName": "",
+          "email": "",
+          "phone": "",
+          "location": "",
+          "headline": "",
+          "linkedin": "",
+          "github": "",
+          "portfolio": ""
+        },
+        "summary": "Highly accomplished AI Developer leveraging expertise in machine learning and natural language processing to drive business growth through innovative solutions, achieving 30% increase in model accuracy and 25% reduction in development time. Proven track record of delivering scalable AI models that improve customer experience and drive revenue. Utilizing strong programming skills in Python, Java, and C++ to design, develop, and deploy AI applications. Focused on collaborating with cross-functional teams to identify opportunities and implement AI-driven solutions that enhance operational efficiency.",
+        "experience": [
+          {
+            "company": "",
+            "role": "",
+            "duration": "",
+            "highlights": [
+              ""
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "",
+            "degree": "",
+            "year": ""
+          }
+        ],
+        "skills": [],
+        "projects": [
+          {
+            "name": "",
+            "description": "",
+            "link": ""
+          }
+        ],
+        "certifications": [],
+        "languages": []
+      }
+    },
+    {
+      "id": "0f894069-0c40-42dd-984a-8d4a55533c43",
+      "createdAt": "2026-07-10T09:51:19.681Z",
+      "updatedAt": "2026-07-10T09:51:43.583Z",
+      "userId": "8d6bff75-5f4a-4e33-856b-d828c8596bf9",
+      "title": "My Modern Resume",
+      "templateId": "modern",
+      "content": {
+        "templateId": "modern",
+        "personalInfo": {
+          "fullName": "",
+          "email": "",
+          "phone": "",
+          "location": "",
+          "headline": "",
+          "linkedin": "",
+          "github": "",
+          "portfolio": ""
+        },
+        "summary": " i software engineer",
         "experience": [
           {
             "company": "",
