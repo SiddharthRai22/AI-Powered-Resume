@@ -561,6 +561,55 @@
         "certifications": [],
         "languages": []
       }
+    },
+    {
+      "id": "9b1019a5-3305-48b1-8e9a-444ac8343a56",
+      "createdAt": "2026-07-10T14:25:48.256Z",
+      "updatedAt": "2026-07-10T14:30:39.427Z",
+      "userId": "847d2063-4f94-45f3-91ab-8f88a420a6ed",
+      "title": "My Modern Resume",
+      "templateId": "modern",
+      "content": {
+        "templateId": "modern",
+        "personalInfo": {
+          "fullName": "",
+          "email": "",
+          "phone": "",
+          "location": "",
+          "headline": "",
+          "linkedin": "",
+          "github": "",
+          "portfolio": ""
+        },
+        "summary": "",
+        "experience": [
+          {
+            "company": "",
+            "role": "",
+            "duration": "",
+            "highlights": [
+              ""
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "",
+            "degree": "",
+            "year": ""
+          }
+        ],
+        "skills": [],
+        "projects": [
+          {
+            "name": "",
+            "description": "",
+            "link": ""
+          }
+        ],
+        "certifications": [],
+        "languages": []
+      }
     }
   ]
 }
