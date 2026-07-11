@@ -69,6 +69,20 @@
       "fullName": "Test User",
       "email": "test@example.com",
       "password": "$2a$12$4Ked.ZL5b/KTWrlQiXeJEOn.yype8wozXe1zOpFCiCcpJyRIc5116"
+    },
+    {
+      "id": "42178a88-4ba9-4b82-a60b-f7306f355e59",
+      "createdAt": "2026-07-11T02:11:20.038Z",
+      "fullName": "Siddharth",
+      "email": "siddharthkumarrai2003@gmail.com",
+      "password": "$2a$12$3M3HnYdVyxihriJazWIpbuKIMVtsiKqodGeZLQvGyVo9c00MAaEGS"
+    },
+    {
+      "id": "757ca43f-d75b-4b9c-95ed-992125125df5",
+      "createdAt": "2026-07-11T02:12:37.047Z",
+      "fullName": "ladu",
+      "email": "ladu123@gmsil.com",
+      "password": "$2a$12$JNUI33XDQOdRYhoYEQCVl.sHFQ7SHZmSpSpR4u7aB2stUcgtgo2aK"
     }
   ],
   "resumes": [
@@ -582,6 +596,55 @@
           "portfolio": ""
         },
         "summary": "",
+        "experience": [
+          {
+            "company": "",
+            "role": "",
+            "duration": "",
+            "highlights": [
+              ""
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "",
+            "degree": "",
+            "year": ""
+          }
+        ],
+        "skills": [],
+        "projects": [
+          {
+            "name": "",
+            "description": "",
+            "link": ""
+          }
+        ],
+        "certifications": [],
+        "languages": []
+      }
+    },
+    {
+      "id": "a261b865-5e1d-4a82-84f4-c21fd22621ae",
+      "createdAt": "2026-07-11T02:11:28.521Z",
+      "updatedAt": "2026-07-11T02:11:49.314Z",
+      "userId": "42178a88-4ba9-4b82-a60b-f7306f355e59",
+      "title": "My Modern Resume",
+      "templateId": "modern",
+      "content": {
+        "templateId": "modern",
+        "personalInfo": {
+          "fullName": "",
+          "email": "",
+          "phone": "",
+          "location": "",
+          "headline": "",
+          "linkedin": "",
+          "github": "",
+          "portfolio": ""
+        },
+        "summary": "Results-driven AI Developer with 5+ years of experience in designing, developing, and deploying scalable AI solutions, driving 30%increase in process efficiency and 25% reduction in operational costs. Proven expertise in machine learning, deep learning, and natural language processing, with a strong portfolio of delivering high-impact projects. Leveraging technical expertise to drive business growth, improve customer experiences, and foster innovation. Achieving 95% accuracy in AI model development and 99% uptime in production environments.",
         "experience": [
           {
             "company": "",

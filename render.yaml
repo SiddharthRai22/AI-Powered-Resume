@@ -1,0 +1,46 @@
+services:
+  # ── Backend Web Service ──────────────────────────────────────────────────────
+  - type: web
+    name: ai-resume-builder-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    plan: free
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: FRONTEND_URL
+        fromService:
+          name: ai-resume-builder-frontend
+          type: web
+          property: host
+          envVarKey: RENDER_EXTERNAL_URL
+
+  # ── Frontend Static Site ─────────────────────────────────────────────────────
+  - type: web
+    name: ai-resume-builder-frontend
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    plan: free
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          name: ai-resume-builder-backend
+          type: web
+          property: host
+          envVarKey: RENDER_EXTERNAL_URL
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
