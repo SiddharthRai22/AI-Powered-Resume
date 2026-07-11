@@ -18,20 +18,8 @@ const errorHandler = require('./middleware/errorHandler');
 const app = express();
 
 // ─── Core Middleware ──────────────────────────────────────────────────────────
-// Support multiple origins: local dev + production (Render)
-const allowedOrigins = [
-  'http://localhost:5173',
-  'http://localhost:4173',
-  process.env.FRONTEND_URL,
-].filter(Boolean); // remove undefined/empty values
-
 app.use(cors({
-  origin: (origin, callback) => {
-    // Allow requests with no origin (curl, Postman, server-to-server)
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin)) return callback(null, true);
-    callback(new Error(`CORS: Origin '${origin}' not allowed`));
-  },
+  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
   credentials: true,
 }));
 app.use(express.json({ limit: '10mb' }));

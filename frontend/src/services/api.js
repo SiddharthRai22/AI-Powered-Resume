@@ -6,11 +6,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  // In production (Render): VITE_API_URL = https://ai-resume-backend.onrender.com
-  // In local dev: falls back to '/api' which Vite proxies to http://localhost:5000
-  baseURL: import.meta.env.VITE_API_URL
-    ? `${import.meta.env.VITE_API_URL}/api`
-    : '/api',
+  baseURL: '/api',
   timeout: 30000,
   headers: { 'Content-Type': 'application/json' },
 });
