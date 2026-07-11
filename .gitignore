@@ -1,29 +1,42 @@
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
-# Compiled output
-/dist
+# ── Node ──────────────────────────────────────────────────────
+# Root and all subdirectory node_modules
+node_modules/
+frontend/node_modules/
+backend/node_modules/
+npm-debug.log*
+yarn-error.log
+
+# ── Build Output ──────────────────────────────────────────────
+dist/
+frontend/dist/
 /tmp
 /out-tsc
 /bazel-out
 
-# Node
-/node_modules
-npm-debug.log
-yarn-error.log
+# ── Environment Variables (NEVER commit secrets!) ─────────────
+.env
+.env.local
+.env.*.local
+frontend/.env.local
+backend/.env
 
-# IDEs and editors
+# ── Database / Data Files ─────────────────────────────────────
+# JSON file store resets on Render anyway; keep out of git
+backend/data/db.json
+
+# ── IDEs and Editors ──────────────────────────────────────────
 .idea/
 .project
 .classpath
-.env
 .c9/
 *.launch
 .settings/
 *.sublime-workspace
 
-# Visual Studio Code
+# ── Visual Studio Code ────────────────────────────────────────
 .vscode/*
-./vscode
 .vscode/
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -31,7 +44,7 @@ yarn-error.log
 !.vscode/extensions.json
 .history/*
 
-# Miscellaneous
+# ── Miscellaneous ─────────────────────────────────────────────
 /.angular/cache
 .sass-cache/
 /connect.lock
@@ -40,6 +53,6 @@ yarn-error.log
 testem.log
 /typings
 
-# System files
+# ── System Files ──────────────────────────────────────────────
 .DS_Store
 Thumbs.db
